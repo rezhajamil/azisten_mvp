@@ -53,16 +53,16 @@ class TransactionController extends Controller
             'kos_facility' => $facility . "," . $request->other_facil,
             'kos_type' => $request->type,
             'payment_interval' => $payment_interval,
-            'price_min' => $request->price_min,
-            'price_max' => $request->price_max,
+            'price_min' => $request->price_min*1000,
+            'price_max' => $request->price_max*1000,
         ];
         $text=
-        "Hallo AZISTEN\nSaya ".$request->name." ingin mencari Kos dengan tipe Kos ".$request->type." disekitar kampus *".$request->college."*.\nFasilitas Kos yang ingin saya dapatkan adalah *".$facility.",".$request->other_facil."*\nDengan range harga per ".$payment_interval." *Rp.".number_format($request->price_min,3,"",".")."* - *Rp.". number_format($request->price_max, 3, "", ".")."*\nTerima Kasih.";
+        "Hallo AZISTEN\nSaya ".$request->name." ingin mencari Kos dengan tipe Kos ".$request->type." disekitar kampus *".$request->college."*.\nFasilitas Kos yang ingin saya dapatkan adalah *".$facility.",".$request->other_facil."*\nDengan range harga per ".$payment_interval." *Rp.".number_format($request->price_min*1000,0,"",".")."* - *Rp.". number_format($request->price_max * 1000, 0, "", ".")."*\nTerima Kasih.";
 
-        
-        // Transaction::create($data);
-        return redirect('https://wa.me/6285869205026?text='.rawurlencode($text)) ;
-        return back();
+        $wa_url='https://wa.me/6285869205026?text='.rawurlencode($text);                        
+
+        Transaction::create($data);
+        return back()->with('success',$wa_url);
     }
 
     /**

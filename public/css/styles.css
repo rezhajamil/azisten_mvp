@@ -15,6 +15,20 @@ a:hover {
 /* .title{
 	font-family: 'Lora', serif;
 } */
+
+.loading-animation {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(202, 210, 218, 0.9);
+}
+
 .nav-link {
     position: relative;
     box-sizing: border-box;
@@ -22,8 +36,8 @@ a:hover {
     transition: 0.4s ease-in-out;
 }
 .nav-link:hover {
-    color: black;
-    background-color: #f3f3f3;
+    color: white !important;
+    background-color: #3fbb56;
 }
 .nav-link:after {
     content: "";
@@ -69,7 +83,15 @@ div.profile {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.4);
+    box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 400px) {
+    .jumbotron,
+    .afiliasi {
+        border-radius: 0px;
+        height: 400px;
+    }
 }
 
 .j-capt .h1 {
@@ -106,6 +128,41 @@ div.profile {
     background-position: top;
 }
 
+.layanan-icon {
+    border-right: 5px solid white;
+}
+
+.layanan-card {
+    border-radius: 15px;
+    box-shadow: -15px 20px 31px #d6d6d6, 20px -20px 31px #ffffff;
+    transition: 0.5s ease-out;
+}
+
+.layanan-card:hover {
+    transform: scale(1.1);
+    box-shadow: none;
+}
+
+.layanan-name span {
+    font-size: 3vw;
+}
+
+@media screen and (max-width: 780px) {
+    .layanan-icon {
+        border-right: 3px solid white;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .layanan-icon {
+        border-right: 2px solid white;
+    }
+
+    .layanan-card {
+        border-radius: 5px;
+    }
+}
+
 .btn-layanan {
     border-radius: 0px 0.5rem 0px 0px !important;
 }
@@ -123,6 +180,10 @@ div.profile {
     background-size: cover;
     background-position: center;
     box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.intro {
+    box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.8);
 }
 
 .intro iframe {
@@ -184,13 +245,14 @@ span.afiliasi-step-num {
 
 /* Partner Style */
 
-.partner {
+.partner,
+.cara-pesan {
     background-color: rgba(196, 196, 196, 0.4);
     overflow-x: hidden;
 }
 
 .partner .title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 .partner-logo {
@@ -205,10 +267,6 @@ span.afiliasi-step-num {
 #carousel-partner .carousel-indicators button:hover,
 #carousel-partner .carousel-indicators button:focus {
     background-color: #3fbb56 !important;
-}
-
-#carousel-partner .carousel-item {
-    height: 150px;
 }
 
 /* Footer Style */
@@ -434,6 +492,10 @@ footer .contact-form button.filled-button:hover {
 
     .about-us p.text-grey1 {
         margin-top: -150px;
+    }
+
+    .intro {
+        margin-top: -180px;
     }
 }
 
@@ -964,12 +1026,11 @@ footer .contact-form button.filled-button:hover {
 }
 
 .cari-kos-wrapper {
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
     background: #fff;
     margin: 0px auto;
     box-shadow: 2px 2px 12px rgb(9 110 9 / 25%);
-    padding: 30px;
 }
 
 .cari-kos-title {
@@ -985,21 +1046,22 @@ footer .contact-form button.filled-button:hover {
     width: 100%;
 }
 
- .cari-kos-form .cari-kos-inputfield {
+.cari-kos-form .cari-kos-inputfield {
     margin-bottom: 15px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
- .cari-kos-form .cari-kos-inputfield label {
-    width: 200px;
+.cari-kos-form .cari-kos-inputfield label {
+    width: 100%;
     color: #757575;
     margin-right: 10px;
     font-size: 14px;
 }
 
- .cari-kos-form .cari-kos-inputfield .input,
- .cari-kos-form .cari-kos-inputfield .textarea {
+.cari-kos-form .cari-kos-inputfield .input,
+.cari-kos-form .cari-kos-inputfield .textarea {
     width: 100%;
     outline: none;
     border: 1px solid #d5dbd9;
@@ -1009,20 +1071,19 @@ footer .contact-form button.filled-button:hover {
     transition: all 0.3s ease;
 }
 
- .cari-kos-form .cari-kos-inputfield .textarea {
+.cari-kos-form .cari-kos-inputfield .textarea {
     width: 100%;
     height: 125px;
     resize: none;
 }
 
- .cari-kos-form .cari-kos-inputfield .cari-kos-custom_select {
+.cari-kos-form .cari-kos-inputfield .cari-kos-custom_select {
     position: relative;
     width: 100%;
     height: 37px;
 }
 
-
-    .cari-kos-form
+/* .cari-kos-form
     .cari-kos-inputfield
     .cari-kos-custom_select:before {
     content: "";
@@ -1032,13 +1093,9 @@ footer .contact-form button.filled-button:hover {
     border: 8px solid;
     border-color: #d5dbd9 transparent transparent transparent;
     pointer-events: none;
-}
+} */
 
-
-    .cari-kos-form
-    .cari-kos-inputfield
-    .cari-kos-custom_select
-    select {
+.cari-kos-form .cari-kos-inputfield .cari-kos-custom_select select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -1052,13 +1109,9 @@ footer .contact-form button.filled-button:hover {
     border-radius: 3px;
 }
 
- .cari-kos-form .cari-kos-inputfield .input:focus,
- .cari-kos-form .cari-kos-inputfield .textarea:focus,
-
-    .cari-kos-form
-    .cari-kos-inputfield
-    .cari-kos-custom_select
-    select:focus {
+.cari-kos-form .cari-kos-inputfield .input:focus,
+.cari-kos-form .cari-kos-inputfield .textarea:focus,
+.cari-kos-form .cari-kos-inputfield .cari-kos-custom_select select:focus {
     border: 1px solid #3fbb56 !important;
 }
 
@@ -1161,6 +1214,10 @@ footer .contact-form button.filled-button:hover {
 }
 
 @media (max-width: 420px) {
+    .cari-kos-wrapper {
+        max-width: 100%;
+    }
+
     .cari-kos-wrapper .cari-kos-form .cari-kos-inputfield {
         flex-direction: column;
         align-items: flex-start;
@@ -1241,7 +1298,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     border: 3px solid #3fbb56;
 }
 
-.mw-75{
+.mw-75 {
     max-width: 75%;
 }
 
@@ -1258,7 +1315,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     margin-top: -20px;
 }
 
-.payment-interval-label{
+.payment-interval-label {
     max-width: fit-content;
 }
 
@@ -1270,14 +1327,103 @@ input[type="range"]:active::-webkit-slider-thumb {
     box-shadow: none;
 }
 
-.btn-add-facil{
+.btn-add-facil {
     color: #006c18;
 }
-.btn-add-facil:hover{
+.btn-add-facil:hover {
     color: #009020;
 }
 
 .other-facil-wrapper {
     transition: all 0.8s ease-in-out;
     display: none;
+}
+
+.other-college {
+    display: none;
+}
+
+/* checkbox style */
+ul.ks-cboxtags {
+    list-style: none;
+    padding: 20px;
+}
+
+ul.ks-cboxtags li {
+    display: inline;
+}
+
+ul.ks-cboxtags li label {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(139, 139, 139, 0.3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    font-weight: 400;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: block;
+    width: fit-content;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "FontAwesome";
+    font-weight: 400;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067\a";
+    white-space: pre;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    -webkit-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 1px solid #3fbb56;
+    background-color: #3fbb56;
+    color: #fff;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+    display: absolute;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
 }

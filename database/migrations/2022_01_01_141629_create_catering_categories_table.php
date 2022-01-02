@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAfiliasisTable extends Migration
+class CreateCateringCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateAfiliasisTable extends Migration
      */
     public function up()
     {
-        Schema::create('afiliasis', function (Blueprint $table) {
+        Schema::create('catering_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateAfiliasisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('afiliasis');
+        Schema::dropIfExists('catering_categories');
     }
 }

@@ -5,6 +5,11 @@
 <script src="{{ asset("vendor/wow/wow.js") }}"></script>
 <script>new WOW().init();</script>
 <script>
+  $(document).ready(function(){
+      document.querySelector(".loading-animation").style.display="none";
+    });
+</script>
+<script>
   var owl_layanan = $('.owl-carousel.owl-carousel-layanan');
   owl_layanan.owlCarousel({
     loop: true,
@@ -113,6 +118,39 @@
   })
 </script>
 
+
+<script>
+  $('.kos-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    stagePadding:50,
+    dots:false,
+    autoplay:true,
+    autoplayTimeout:1500,
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:1,
+            loop:true,
+            nav:false
+        },
+        600:{
+            center:true,
+            items:4,
+            loop:true,
+            nav:false
+        },
+        1000:{
+            center:true,
+            items:5,
+            nav:false,
+            loop:true,
+        }
+    }
+})
+</script>
+
 <script>
   let toggles = document.getElementsByClassName('faq-toggle');
   let contentDiv = document.getElementsByClassName('faq-content');
@@ -165,13 +203,15 @@
   let sliderTwo = document.getElementById("price-slider-max");
   let displayValOne = document.getElementById("price-min");
   let displayValTwo = document.getElementById("price-max");
-  let minGap = 100;
+  let minGap = 500;
   let sliderTrack = document.querySelector(".slider-track");
-  let sliderMaxValue = document.getElementById("price-slider-min").max;
+  let sliderMaxValue = sliderOne.max;
   let checkKebijakan = document.getElementsByClassName("check-kebijakan");
   let btnSubmit = document.querySelector(".cari-kos-btn");
   let btnAddFacil = document.querySelector(".btn-add-facil");
   let otherFacil = document.querySelector(".other-facil-wrapper");
+  let collegeSelect=document.querySelector(".college-select")
+  let otherCollege=document.querySelector(".other-college")
 
   window.onload = function() {
     slideOne();
@@ -189,10 +229,36 @@
     if (switchPaymentInterval.checked) {
       labelPaymentInterval.textContent="Tahunan";
       switchPaymentInterval.value="Tahun";
+      minGap=500;
+      sliderOne.max=20000;
+      sliderOne.min=1000;
+      sliderOne.value=1000;
+      sliderOne.step=500;
+      displayValOne.value=1000;
+      sliderTwo.max=20000;
+      sliderTwo.min=1000;
+      sliderTwo.value=20000;
+      sliderTwo.step=500;
+      displayValTwo.value=20000;
+      sliderMaxValue=20000;
     }else{
       labelPaymentInterval.textContent="Bulanan";
       switchPaymentInterval.value="Bulan";
+      minGap=100;
+      sliderOne.max=2000;
+      sliderOne.min=100;
+      sliderOne.value=100;
+      sliderOne.step=100;
+      displayValOne.value=100;
+      sliderTwo.max=2000;
+      sliderTwo.min=100;
+      sliderTwo.value=2000;
+      sliderTwo.step=100;
+      displayValTwo.value=2000;
+      sliderMaxValue=2000;
     }
+    slideOne();
+    slideTwo();
   }
 
   function slideOne() {
@@ -212,16 +278,16 @@
   }
 
   function priceOne() {
-    if (displayValOne.value < 100 || displayValOne.value > 5000) {
-      displayValOne.value = 100;
+    if (displayValOne.value < sliderOne.min || displayValOne.value > sliderTwo.max) {
+      displayValOne.value = sliderOne.min;
     }
     sliderOne.value = displayValOne.value;
     fillColor();
   }
 
   function pricetwo() {
-    if (displayValTwo.value < 100 || displayValTwo.value > 5000) {
-      displayValTwo.value = 5000;
+    if (displayValTwo.value < sliderOne.min || displayValTwo.value > sliderTwo.max) {
+      displayValTwo.value = sliderTwo.max;
     }
     sliderTwo.value = displayValTwo.value;
     fillColor();
@@ -244,6 +310,14 @@
     } else {
       btnAddFacil.innerHTML = "- Fasilitas Lainnya";
       otherFacil.style.display="block";
+    }
+  }
+
+  function toogleCollege(){
+    if (collegeSelect.value=="Lainnya") {
+      otherCollege.style.display="block";
+    }else{
+      otherCollege.style.display="none";
     }
   }
 </script>

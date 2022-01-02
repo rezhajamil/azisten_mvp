@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionsTable extends Migration
+class CreateKosSearchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('kos_searches', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('whatsapp');
+            $table->unsignedBigInteger('customer_id');
             $table->string('college');
-            $table->string('kos_facility')->nullable();
-            $table->string('kos_type');
+            $table->string('facility')->nullable();
+            $table->string('type');
             $table->string('payment_interval');
             $table->integer('price_min');
             $table->integer('price_max');
+            $table->string('referral_code')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('kos_searches');
     }
 }

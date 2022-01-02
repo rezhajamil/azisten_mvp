@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AfiliasiController;
+use App\Http\Controllers\AfiliatorController;
+use App\Http\Controllers\AlatKosPurchaseController;
+use App\Http\Controllers\CateringPurchaseController;
+use App\Http\Controllers\GalonPurchaseController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\KosSearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', [HomeController::class,'index']);
+Route::post('/contact', [HomeController::class,'sendMessage']);
 Route::get('about', [AboutController::class, 'index']);
-Route::get('afiliasi', [AfiliasiController::class, 'index']);
-Route::resource('transaction', TransactionController::class);
+Route::resource('cari_kos', KosSearchController::class);
+Route::resource('afiliasi', AfiliatorController::class);
+Route::resource('pesan_galon', GalonPurchaseController::class);
+Route::resource('pesan_catering', CateringPurchaseController::class);
+Route::resource('pesan_alat_kos', AlatKosPurchaseController::class);
