@@ -14,17 +14,20 @@ class CateringCategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        $data=[
+        $data = [
             [
-                'name'=>'Paket Lengkap',
-                'description'=>'Nasi + Sayur + Lauk',
+                'name' => 'Paket Lengkap',
+                'description' => 'Nasi + Sayur + Lauk',
             ],
             [
-                'name'=>'Hanya Lauk',
-                'description'=>'Lauk',
+                'name' => 'Hanya Lauk',
+                'description' => 'Sayur + Lauk',
             ]
         ];
 
-        CateringCategory::insert($data);
+        foreach ($data as $data ) {
+            CateringCategory::create($data);
+        }
+
     }
 }

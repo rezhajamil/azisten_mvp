@@ -64,6 +64,25 @@
             </div>
             <div class="cari-kos-inputfield">
                 <div class="col-12 col-sm-4">
+                    <label>Kelompok Kos</label>
+                </div>
+                <div class="col-12 col-sm-8 d-flex flex-wrap justify-content-around">
+                    <div class="col-6 p-1">
+                        <input type="radio" class="btn-check" name="group" id="g-standard" value="Standard" autocomplete="off" onchange="toogleGroup()">
+                        <label class="btn btn-outline-success" for="g-standard"><span class="fw-bold">Standard</span><br><small class="">100rb-600rb/bulan</small></label>
+                    </div>
+                    <div class="col-6 p-1">
+                        <input type="radio" class="btn-check" name="group" id="g-elite" value="Elite" autocomplete="off" onchange="toogleGroup()" checked>
+                        <label class="btn btn-outline-success" for="g-elite"><span class="fw-bold">Elite</span><br><small class="">700rb-2jt/bulan</small></label>
+                    </div>
+                    <div class="col-6 p-1">
+                        <input type="radio" class="btn-check" name="group" id="g-other" value="Lainnya" autocomplete="off" onchange="toogleGroup()">
+                        <label class="btn btn-outline-success" for="g-other"><span class="fw-bold">Lainnya</span><br></label>
+                    </div>
+                </div>
+            </div>
+            <div class="cari-kos-inputfield facility ">
+                <div class="col-12 col-sm-4">
                     <label>Fasilitas</label>
                 </div>
                 <div class="col-12 col-sm-8 d-flex flex-wrap justify-content-between">
@@ -115,7 +134,7 @@
                     <div class="d-flex justify-content-around mb-3">
                         <div class="input-group">
                             <span class="input-group-text p-1">Rp.</span>
-                            <input type="number" value="1000" name="price_min" class="form-control mw-75" id="price-min" onblur="priceOne()">
+                            <input type="number" value="8000" name="price_min" class="form-control mw-75" id="price-min" onblur="priceOne()">
                             <span class="input-group-text px-2 bg-transparent me-1">k</span>
                         </div>
                         <div class="input-group">
@@ -125,9 +144,9 @@
                         </div>
                     </div>
                     <div class="slider-container">
-                        <div class="slider-track bg-green2 rounded-pill"></div>
-                        <input type="range" min="1000" max="20000" value="1000" step="500" id="price-slider-min" class="price-slider" oninput="slideOne()">
-                        <input type="range" min="1000" max="20000" value="20000" step="500" id="price-slider-max" class="price-slider" oninput="slideTwo()">
+                        <div class="slider-track bg-grey1 rounded-pill"></div>
+                        <input type="range" min="8000" max="20000" value="8000" step="500" id="price-slider-min" class="price-slider" oninput="slideOne()">
+                        <input type="range" min="8000" max="20000" value="20000" step="500" id="price-slider-max" class="price-slider" oninput="slideTwo()">
                     </div>
                 </div>
             </div>

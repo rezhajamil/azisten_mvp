@@ -19,6 +19,7 @@ class CreateCateringPurchasesTable extends Migration
             $table->unsignedBigInteger('type');
             $table->unsignedBigInteger('duration');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

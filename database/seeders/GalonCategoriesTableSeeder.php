@@ -28,6 +28,9 @@ class GalonCategoriesTableSeeder extends Seeder
             ],
         ];
 
-        DB::table('galon_categories')->insert($data);
+        foreach ($data as $data) {
+            GalonCategory::create($data);
+        }
+
     }
 }

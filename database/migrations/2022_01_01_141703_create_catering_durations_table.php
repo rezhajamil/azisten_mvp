@@ -18,6 +18,7 @@ class CreateCateringDurationsTable extends Migration
             $table->string('name');
             $table->integer('amount');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

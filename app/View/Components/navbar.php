@@ -28,6 +28,7 @@ class Navbar extends Component
             'Afiliasi' => '/afiliasi',
             'Tentang Kami' => '/about',
         ];
+
         return view('components.navbar', compact('nav'));
     }
 }

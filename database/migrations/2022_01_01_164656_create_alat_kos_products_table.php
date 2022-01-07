@@ -20,6 +20,7 @@ class CreateAlatKosProductsTable extends Migration
             $table->integer('stock')->nullable();
             $table->integer('price')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

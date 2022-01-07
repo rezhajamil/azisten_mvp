@@ -19,6 +19,7 @@ class CreateGalonPurchasesTable extends Migration
             $table->integer('amount');
             $table->unsignedBigInteger('type');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

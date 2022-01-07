@@ -18,6 +18,7 @@ class CreateAlatKosPurchasesTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->string('item');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

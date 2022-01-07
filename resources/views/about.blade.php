@@ -30,7 +30,7 @@ mahasiswa dalam memenuhi kebutuhan lainnya</p>
           </button> --}}
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 offset-0 offset-md-1 offset-lg-1 py-lg-3 rounded-3 overflow-hidden">
-          <iframe src="https://www.youtube.com/embed/prlboWEZfzU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/PQlOz09lH6A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>

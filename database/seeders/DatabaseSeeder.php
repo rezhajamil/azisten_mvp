@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             AlatKosProductsTableSeeder::class,
             CateringCategoryTableSeeder::class,
             CateringDurationTableSeeder::class,
+            AdminUserSeeder::class,
         ]);
     }
 }
