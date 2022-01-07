@@ -19,6 +19,7 @@ class CreateGalonCategoriesTable extends Migration
             $table->integer('price')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

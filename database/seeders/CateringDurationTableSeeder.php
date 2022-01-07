@@ -29,6 +29,9 @@ class CateringDurationTableSeeder extends Seeder
             ],
         ];
 
-        CateringDuration::insert($data);
+        foreach ($data as $data ) {
+            CateringDuration::create($data);
+        }
+
     }
 }

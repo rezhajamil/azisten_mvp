@@ -24,6 +24,7 @@ class CreateKosSearchesTable extends Migration
             $table->integer('price_max');
             $table->string('referral_code')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

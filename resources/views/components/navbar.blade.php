@@ -12,7 +12,18 @@
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ $url }}">{{ $name }}</a>
             </li>
-          @endforeach
+            @endforeach
+          <li class="nav-item dropdown">
+              <a class="nav-link active " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Layanan</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{{ route('cari_kos.index') }}">Cari Kos</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{{ route('pesan_galon.index') }}">Air Galon</a></li>
+                <li><a class="dropdown-item" href="{{ route('pesan_catering.index') }}">Catering</a></li>
+                <li><a class="dropdown-item" href="{{ route('pesan_alat_kos.index') }}">Peralatan Kos</a></li>
+              </ul>
+          </li>
+        </li>
       </ul>
     </div>
   </div>

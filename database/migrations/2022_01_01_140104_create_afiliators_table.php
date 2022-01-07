@@ -22,6 +22,7 @@ class CreateAfiliatorsTable extends Migration
             $table->string('address');
             $table->string('referral_code')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -56,7 +56,7 @@
                     <select name="type" class="form-select @error('type')is-invalid @enderror">
                         <option value="" selected disabled>Pilih Paket Catering</option>
                         @foreach ($catering_categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}">{{ $category->name }} <small class="text-muted">({{ $category->description }})</small></option>
                         @endforeach
                     </select>
                 </div>

@@ -229,36 +229,45 @@
     if (switchPaymentInterval.checked) {
       labelPaymentInterval.textContent="Tahunan";
       switchPaymentInterval.value="Tahun";
-      minGap=500;
-      sliderOne.max=20000;
-      sliderOne.min=1000;
-      sliderOne.value=1000;
-      sliderOne.step=500;
-      displayValOne.value=1000;
-      sliderTwo.max=20000;
-      sliderTwo.min=1000;
-      sliderTwo.value=20000;
-      sliderTwo.step=500;
-      displayValTwo.value=20000;
-      sliderMaxValue=20000;
+      if (document.getElementById('g-standard').checked) {
+        switchSliderRange(1000,8000,500,500);
+      }
+      else if (document.getElementById('g-elite').checked) {
+        switchSliderRange(8000,20000,500,500);
+      }
+      else{
+        switchSliderRange(1000,20000,500,500);
+      }
     }else{
       labelPaymentInterval.textContent="Bulanan";
       switchPaymentInterval.value="Bulan";
-      minGap=100;
-      sliderOne.max=2000;
-      sliderOne.min=100;
-      sliderOne.value=100;
-      sliderOne.step=100;
-      displayValOne.value=100;
-      sliderTwo.max=2000;
-      sliderTwo.min=100;
-      sliderTwo.value=2000;
-      sliderTwo.step=100;
-      displayValTwo.value=2000;
-      sliderMaxValue=2000;
+      if (document.getElementById('g-standard').checked) {
+        switchSliderRange(100,600,100,100);
+      }
+      else if (document.getElementById('g-elite').checked) {
+        switchSliderRange(700,2000,100,100);
+      }
+      else{
+        switchSliderRange(100,2000,100,100);
+      }
     }
     slideOne();
     slideTwo();
+  }
+
+  function switchSliderRange(min,max,gap,step) {
+      minGap=gap;
+      sliderOne.max=max;
+      sliderOne.min=min;
+      sliderOne.value=min;
+      sliderOne.step=step;
+      displayValOne.value=min;
+      sliderTwo.max=max;
+      sliderTwo.min=min;
+      sliderTwo.value=max;
+      sliderTwo.step=step;
+      displayValTwo.value=max;
+      sliderMaxValue=max;
   }
 
   function slideOne() {
@@ -266,7 +275,7 @@
       sliderOne.value = parseInt(sliderTwo.value) - minGap;
     }
     displayValOne.value = sliderOne.value;
-    fillColor();
+    // fillColor();
   }
 
   function slideTwo() {
@@ -274,30 +283,30 @@
       sliderTwo.value = parseInt(sliderOne.value) + minGap;
     }
     displayValTwo.value = sliderTwo.value;
-    fillColor();
+    // fillColor();
   }
 
   function priceOne() {
-    if (displayValOne.value < sliderOne.min || displayValOne.value > sliderTwo.max) {
+    if (displayValOne.value < parseInt(sliderOne.min) || displayValOne.value > (parseInt(sliderTwo.value)-minGap)) {
       displayValOne.value = sliderOne.min;
     }
     sliderOne.value = displayValOne.value;
-    fillColor();
+    // fillColor();
   }
 
-  function pricetwo() {
-    if (displayValTwo.value < sliderOne.min || displayValTwo.value > sliderTwo.max) {
+  function priceTwo() {
+    if (displayValTwo.value > parseInt(sliderTwo.max) || displayValTwo.value < (parseInt(sliderOne.value)+minGap)) {
       displayValTwo.value = sliderTwo.max;
     }
     sliderTwo.value = displayValTwo.value;
-    fillColor();
+    // fillColor();
   }
 
-  function fillColor() {
-    percent1 = (sliderOne.value / sliderMaxValue) * 100;
-    percent2 = (sliderTwo.value / sliderMaxValue) * 100;
-    sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3fbb56 ${percent1}% , #3fbb56 ${percent2}%, #dadae5 ${percent2}%)`;
-  }
+  // function fillColor() {
+  //   percent1 = (sliderOne.value / sliderMaxValue) * 100;
+  //   percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+  //   sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3fbb56 ${percent1}% , #3fbb56 ${percent2}%, #dadae5 ${percent2}%)`;
+  // }
 
   function toogleSubmit() {
     btnSubmit.classList.toggle("active");
@@ -320,4 +329,17 @@
       otherCollege.style.display="none";
     }
   }
+
+  function toogleGroup() {
+    switchPaymentInterval.checked=true;
+    if (document.getElementById('g-standard').checked) {
+      document.querySelector('.cari-kos-inputfield.facility').classList.add("d-none");
+      changeSwitchValue();
+    }
+    else{
+      document.querySelector('.cari-kos-inputfield.facility').classList.remove("d-none");
+      changeSwitchValue();
+    }
+  }
+
 </script>
