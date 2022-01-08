@@ -75,10 +75,10 @@
                         <input type="radio" class="btn-check" name="group" id="g-elite" value="Elite" autocomplete="off" onchange="toogleGroup()" checked>
                         <label class="btn btn-outline-success" for="g-elite"><span class="fw-bold">Elite</span><br><small class="">700rb-2jt/bulan</small></label>
                     </div>
-                    <div class="col-6 p-1">
+                    {{-- <div class="col-6 p-1">
                         <input type="radio" class="btn-check" name="group" id="g-other" value="Lainnya" autocomplete="off" onchange="toogleGroup()">
                         <label class="btn btn-outline-success" for="g-other"><span class="fw-bold">Lainnya</span><br></label>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="cari-kos-inputfield facility ">
