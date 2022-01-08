@@ -25,7 +25,7 @@ mahasiswa dalam memenuhi kebutuhan lainnya">
     </head>
     <body>
     <x-loading></x-loading>
-    <x-navbar></x-navbar>
+    <x-navbar nav=$nav></x-navbar>
     @yield('content')
     @include('layouts.script')
     </body>
