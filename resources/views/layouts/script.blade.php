@@ -230,10 +230,10 @@
       labelPaymentInterval.textContent="Tahunan";
       switchPaymentInterval.value="Tahun";
       if (document.getElementById('g-standard').checked) {
-        switchSliderRange(1000,11000,500,500);
+        switchSliderRange(1000,8000,500,500);
       }
       else if (document.getElementById('g-elite').checked) {
-        switchSliderRange(11000,20000,500,500);
+        switchSliderRange(8000,20000,500,500);
       }
       else{
         switchSliderRange(1000,20000,500,500);

@@ -135,7 +135,7 @@
                     <div class="d-flex justify-content-around mb-3">
                         <div class="input-group">
                             <span class="input-group-text p-1">Rp.</span>
-                            <input type="number" value="11000" name="price_min" class="form-control mw-75" id="price-min" onblur="priceOne()">
+                            <input type="number" value="8000" name="price_min" class="form-control mw-75" id="price-min" onblur="priceOne()">
                             <span class="input-group-text px-2 bg-transparent me-1">k</span>
                         </div>
                         <div class="input-group">
@@ -146,8 +146,8 @@
                     </div>
                     <div class="slider-container">
                         <div class="slider-track bg-grey1 rounded-pill"></div>
-                        <input type="range" min="11000" max="20000" value="11000" step="500" id="price-slider-min" class="price-slider" oninput="slideOne()">
-                        <input type="range" min="11000" max="20000" value="20000" step="500" id="price-slider-max" class="price-slider" oninput="slideTwo()">
+                        <input type="range" min="8000" max="20000" value="8000" step="500" id="price-slider-min" class="price-slider" oninput="slideOne()">
+                        <input type="range" min="8000" max="20000" value="20000" step="500" id="price-slider-max" class="price-slider" oninput="slideTwo()">
                     </div>
                 </div>
             </div>
