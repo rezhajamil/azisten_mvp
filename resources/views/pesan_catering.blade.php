@@ -1,6 +1,7 @@
 @extends('layouts.app',['title'=>'Pesan Catering|'])
 
 @section('content')
+<x-navbar nav=$nav></x-navbar>
 <div class="cari-kos p-2">
     <div class="cari-kos-wrapper p-3 p-sm-5">
         <div class="cari-kos-title">
@@ -27,25 +28,25 @@
         @if($errors->all())
             <div class="alert alert-danger">Kolom Wajib Diisi</div>
         @endif
-        <form class="cari-kos-form " action="{{ route('pesan_catering.store') }}" method="post">
+        <form class="cari-kos-form " action="{{ route('user.pesan_catering.store') }}" method="post">
             @csrf
             <div class="cari-kos-inputfield">
                 <label>Nama</label>
-                <input type="text" class="input form-control @error('name')is-invalid @enderror" name="name" placeholder="Nama Anda">
+                <input type="text" class="input form-control @error('name')is-invalid @enderror" name="name" placeholder="Nama Anda" value="{{ old('name') }}">
                 <div class="invalid-feedback">
                     Masukkan Nama Anda
                 </div>
             </div>
             <div class="cari-kos-inputfield">
                 <label>WA</label>
-                <input type="text" class="input form-control @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="12" placeholder="081234567890">
+                <input type="text" class="input form-control @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="13" placeholder="081234567890" value="{{ old('phone') }}">
                 <div class="invalid-feedback">
-                    Masukkan nomor WA (11 s/d 12 angka)
+                    Masukkan nomor WA (11 s/d 13 angka)
                 </div>
             </div>
             <div class="cari-kos-inputfield">
                 <label>Alamat</label>
-                <input type="text" class="input form-control @error('address')is-invalid @enderror" name="address">
+                <input type="text" class="input form-control @error('address')is-invalid @enderror" name="address" value="{{ old('address') }}">
                 <div class="invalid-feedback">
                     Masukkan Alamat Anda
                 </div>

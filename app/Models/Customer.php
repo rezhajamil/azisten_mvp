@@ -23,7 +23,7 @@ class Customer extends Model
     // Relation table
     public function kosSearch()
     {
-        return $this->hasMany('App\Models\KosSearch', 'customer_id');
+        return $this->hasOne('App\Models\KosSearch', 'customer_id');
     }
 
     public function galonPurchase()

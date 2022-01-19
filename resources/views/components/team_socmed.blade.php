@@ -1,4 +1,4 @@
-<div class="team-socmed position-absolute">
+<div class=" team-socmed d-flex flex-column h-75 justify-content-center position-absolute">
     <ul class="list-unstyled">
         {{-- <li class="mb-1">
             <a href="#" target="_blank">

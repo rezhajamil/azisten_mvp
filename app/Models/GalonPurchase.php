@@ -15,6 +15,8 @@ class GalonPurchase extends Model
         'customer_id',
         'amount',
         'type',
+        'status_id',
+        'review_id',
         'created_at',
         'updated_at',
     ];

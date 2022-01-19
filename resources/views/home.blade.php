@@ -1,7 +1,7 @@
 
   @extends('layouts.app',['footer'=>true])
   @section('content')
-      
+  <x-navbar nav=$nav></x-navbar>
   <div class="container-lg px-0 my-3">
     <div class="jumbotron d-flex" style="background-image: url({{ asset("images/jumbotron.jpg") }});">
       <div class="container text-white j-capt mt-auto justify-content-end flex-column">

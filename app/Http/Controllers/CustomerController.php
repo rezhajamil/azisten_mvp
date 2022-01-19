@@ -81,4 +81,10 @@ class CustomerController extends Controller
     {
         //
     }
+
+    public function contactCustomer($phone)
+    {
+        $phone = substr_replace($phone, '62', 0, 1);
+        return redirect('https://wa.me/' . $phone);
+    }
 }

@@ -15,6 +15,8 @@ class AlatKosPurchase extends Model
     protected $fillable = [
         'customer_id',
         'item',
+        'status_id',
+        'review_id',
         'created_at',
         'updated_at',
     ];

@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             CateringCategoryTableSeeder::class,
             CateringDurationTableSeeder::class,
             AdminUserSeeder::class,
+            ServiceSeeder::class,
+            StatusSeeder::class,
         ]);
     }
 }

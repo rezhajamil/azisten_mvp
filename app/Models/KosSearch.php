@@ -21,12 +21,24 @@ class KosSearch extends Model
         'price_min',
         'price_max',
         'referral_code',
+        'status_id',
+        'review_id',
         'created_at',
         'updated_at',
     ];
 
     public function customer()
     {
-        return $this->belongsToMany('App\Models\Customer', 'customer_id', 'id');
+        return $this->belongsTo('App\Models\Customer', 'customer_id', 'id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Status', 'status_id', 'id');
+    }
+
+    public function review()
+    {
+        return $this->belongsTo('App\Models\Review', 'review_id', 'id');
     }
 }

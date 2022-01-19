@@ -11,7 +11,7 @@
                 @if($errors->all())
                     <div class="alert alert-danger">Kolom Wajib Diisi</div>
                 @endif
-                <form class="cari-kos-form" action="{{ route('afiliasi.store') }}" method="post">
+                <form class="cari-kos-form" action="{{ route('user.afiliasi.store') }}" method="post">
                     @csrf
                     <div class="cari-kos-inputfield">
                         <label>Nama</label>
@@ -29,9 +29,9 @@
                     </div>
                     <div class="cari-kos-inputfield">
                         <label>WA</label>
-                        <input type="text" class="input form-control @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="12" placeholder="081234567890">
+                        <input type="text" class="input form-control @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="13" placeholder="081234567890">
                         <div class="invalid-feedback">
-                            Masukkan nomor WA (11 s/d 12 angka)
+                            Masukkan nomor WA (11 s/d 13 angka)
                         </div>
                     </div>
                     <div class="cari-kos-inputfield">

@@ -17,6 +17,8 @@ class CreateAlatKosPurchasesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->string('item');
+            $table->foreignId('status_id')->constrained('statuses');
+            $table->foreignId('review_id')->constrained('reviews')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -1,12 +1,14 @@
 @extends('layouts.app',['title'=>"Afiliasi|"])
 
 @section('content')    
+
+<x-navbar nav=$nav></x-navbar>
 <div class="container-lg my-3">
   <div class="afiliasi d-flex" style="background-image: url({{ asset("images/afiliasi-1.jpg") }});">
     <div class="container text-white d-flex justify-content-center flex-column">
       <div class="col-lg-8 offset-lg-1">
         <p class="display-3 fw-bold mb-1">Program Afiliasi AZISTEN</p>
-        <p class="h5 mb-3">Program AZISTEN dengan komisi hingga 70%. Daftarkan diri Anda GRATIS sekarang dan dapatkan penghasilan pasif hingga jutaan rupiah!</p>
+        <p class="h5 mb-3">Program AZISTEN dengan komisi sebesar 40%. Daftarkan diri Anda GRATIS sekarang dan dapatkan penghasilan pasif hingga jutaan rupiah!</p>
         {{-- <button class="btn btn-green1 rounded-3">Lihat Selengkapnya</button> --}}
       </div>
     </div>

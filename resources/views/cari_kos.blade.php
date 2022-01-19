@@ -1,6 +1,7 @@
 @extends('layouts.app',['title'=>'Cari Kos|'])
 
 @section('content')
+<x-navbar nav=$nav></x-navbar>
 <div class="cari-kos p-2">
     <div class="cari-kos-wrapper p-3 p-sm-5">
         <div class="cari-kos-title">
@@ -27,26 +28,26 @@
         @if($errors->all())
             <div class="alert alert-danger">Kolom Wajib Diisi</div>
         @endif
-        <form class="cari-kos-form " action="{{ route('cari_kos.store') }}" method="post">
+        <form class="cari-kos-form " action="{{ route('user.cari_kos.store') }}" method="post">
             @csrf
             <div class="cari-kos-inputfield">
                 <label>Nama</label>
-                <input type="text" class="input form-control @error('name')is-invalid @enderror" name="name" placeholder="Nama Anda">
+                <input type="text" class="input form-control @error('name')is-invalid @enderror" name="name" placeholder="Nama Anda" value="{{ old('name') }}">
                 <div class="invalid-feedback">
                     Masukkan Nama Anda
                 </div>
             </div>
             <div class="cari-kos-inputfield">
                 <label>WA</label>
-                <input type="text" class="input form-control @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="12" placeholder="081234567890">
+                <input type="text" class="input form-control @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="13" placeholder="081234567890" value="{{ old('phone') }}">
                 <div class="invalid-feedback">
-                    Masukkan nomor WA (11 s/d 12 angka)
+                    Masukkan nomor WA (11 s/d 13 angka)
                 </div>
             </div>
             <div class="cari-kos-inputfield">
                 <label>Kampus Anda</label>
                 <div class="cari-kos-custom_select">
-                    <select name="college" class="college-select form-select @error('college')is-invalid @enderror" onchange="toogleCollege()">
+                    <select name="college" class="college-select form-select @error('college')is-invalid @enderror" onchange="toogleCollege()" value="{{ old('college') }}">
                         <option value="" selected disabled>Pilih Kampus</option>
                         <option value="Universitas Sumatra Utara">Universitas Sumatra Utara</option>
                         {{-- <option value="Universitas Negeri Medan">Universitas Negeri Medan</option> --}}
@@ -58,7 +59,7 @@
                 </div>
                 <div class="other-college my-2 col-12">
                     <label>Nama Kampus</label>
-                    <input type="text" name="other_college" class="input form-control">
+                    <input type="text" name="other_college" class="input form-control" value="{{ old('other_college') }}">
                     <span><a href="#" class="text-danger fs-6 fw-light fst-italic text-decoration-underline" data-bs-toggle="modal" data-bs-target="#termModal">Syarat & Ketentuan Berlaku</a></span>
                 </div>
             </div>
@@ -69,11 +70,11 @@
                 <div class="col-12 col-sm-8 d-flex flex-wrap justify-content-around">
                     <div class="col-6 p-1">
                         <input type="radio" class="btn-check" name="group" id="g-standard" value="Standard" autocomplete="off" onchange="toogleGroup()">
-                        <label class="btn btn-outline-success" for="g-standard"><span class="fw-bold">Standard</span><br><small class="">100rb-600rb/bulan</small></label>
+                        <label class="btn btn-outline-success" for="g-standard"><span class="fw-bold">Standard</span><br><small class="">100rb-800rb/bulan</small></label>
                     </div>
                     <div class="col-6 p-1">
                         <input type="radio" class="btn-check" name="group" id="g-elite" value="Elite" autocomplete="off" onchange="toogleGroup()" checked>
-                        <label class="btn btn-outline-success" for="g-elite"><span class="fw-bold">Elite</span><br><small class="">700rb-2jt/bulan</small></label>
+                        <label class="btn btn-outline-success" for="g-elite"><span class="fw-bold">Elite</span><br><small class="">900rb-2jt/bulan</small></label>
                     </div>
                     {{-- <div class="col-6 p-1">
                         <input type="radio" class="btn-check" name="group" id="g-other" value="Lainnya" autocomplete="off" onchange="toogleGroup()">
@@ -134,7 +135,7 @@
                     <div class="d-flex justify-content-around mb-3">
                         <div class="input-group">
                             <span class="input-group-text p-1">Rp.</span>
-                            <input type="number" value="8000" name="price_min" class="form-control mw-75" id="price-min" onblur="priceOne()">
+                            <input type="number" value="11000" name="price_min" class="form-control mw-75" id="price-min" onblur="priceOne()">
                             <span class="input-group-text px-2 bg-transparent me-1">k</span>
                         </div>
                         <div class="input-group">
@@ -145,8 +146,8 @@
                     </div>
                     <div class="slider-container">
                         <div class="slider-track bg-grey1 rounded-pill"></div>
-                        <input type="range" min="8000" max="20000" value="8000" step="500" id="price-slider-min" class="price-slider" oninput="slideOne()">
-                        <input type="range" min="8000" max="20000" value="20000" step="500" id="price-slider-max" class="price-slider" oninput="slideTwo()">
+                        <input type="range" min="11000" max="20000" value="11000" step="500" id="price-slider-min" class="price-slider" oninput="slideOne()">
+                        <input type="range" min="11000" max="20000" value="20000" step="500" id="price-slider-max" class="price-slider" oninput="slideTwo()">
                     </div>
                 </div>
             </div>

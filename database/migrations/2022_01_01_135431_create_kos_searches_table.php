@@ -22,9 +22,15 @@ class CreateKosSearchesTable extends Migration
             $table->string('payment_interval');
             $table->integer('price_min');
             $table->integer('price_max');
+            $table->date('booking_date')->nullable();
             $table->string('referral_code')->nullable();
+            $table->unsignedBigInteger('status_id')->default(1);
+            $table->unsignedBigInteger('review_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('review_id')->references('id')->on('reviews')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreign('status_id')->references('id')->on('statuses')->cascadeOnUpdate()->restrictOnDelete();
         });
     }
 

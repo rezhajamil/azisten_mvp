@@ -18,8 +18,13 @@ class CreateCateringPurchasesTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('type');
             $table->unsignedBigInteger('duration');
+            $table->unsignedBigInteger('status_id')->default(1);
+            $table->unsignedBigInteger('review_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            
+            $table->foreign('review_id')->references('id')->on('reviews')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreign('status_id')->references('id')->on('statuses')->cascadeOnUpdate()->restrictOnDelete();
         });
     }
 
