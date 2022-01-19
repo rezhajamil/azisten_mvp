@@ -1,7 +1,5 @@
 @extends('layouts.app',['title'=>'About|'])
 @section('content')
-    
-<x-navbar nav=$nav></x-navbar>
 <section class="banner my-3 d-flex flex-column justify-content-center align-items-center py-5 wow fadeInDown" style="background-image: url({{ asset("images/banner-2.jpg") }});">
     <p class="h1 fw-bolder text-white text-center">Jasa Cari Kosan No.1</p>
     <p class="h6 text-white text-center">Azisten adalah penyedia jasa cari kos No.1 di Medan</p>

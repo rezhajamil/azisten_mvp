@@ -1,8 +1,6 @@
 @extends('layouts.app',['title'=>"Afiliasi|"])
 
 @section('content')    
-
-<x-navbar nav=$nav></x-navbar>
 <div class="container-lg my-3">
   <div class="afiliasi d-flex" style="background-image: url({{ asset("images/afiliasi-1.jpg") }});">
     <div class="container text-white d-flex justify-content-center flex-column">

@@ -1,7 +1,6 @@
 @extends('layouts.app',['title'=>'Pesan Air Galon|'])
 
 @section('content')
-<x-navbar nav=$nav></x-navbar>
 <div class="cari-kos p-2">
     <div class="cari-kos-wrapper p-3 p-sm-5">
         <div class="cari-kos-title">
