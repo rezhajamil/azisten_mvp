@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Tabel Pencarian Kos</h3>
+      <h3 class="card-title">Tabel Pemesanan Galon</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -13,10 +13,9 @@
           <th>No.</th>
           <th>Nama</th>
           <th>Telepon</th>
-          <th>Kampus</th>
-          <th>Fasilitas</th>
+          <th>Alamat</th>
+          <th>Jumlah</th>
           <th>Tipe</th>
-          <th>Range Harga</th>
           <th>Waktu</th>
           <th>Status</th>
           <th>Keterangan</th>
@@ -27,15 +26,14 @@
         </tr>
         </thead>
         <tbody>
-          @foreach ($kosSearches as $key=>$data)
+          @foreach ($galon_purchases as $key=>$data)
               <tr>
                 <td>{{ $key+1 }}</td>
                 <td>{{ $data->customer->name }}</td>
                 <td>{{ $data->customer->phone }}</td>
-                <td>{{ $data->college }}</td>
-                <td>{{ $data->facility }}</td>
-                <td>{{ $data->type }}</td>
-                <td>({{ number_format($data->price_min, 0, "", ".")}} - {{ number_format($data->price_max, 0, "", ".")}}) / {{ $data->payment_interval }}</td>
+                <td>{{ $data->customer->address }}</td>
+                <td>{{ $data->amount }}</td>
+                <td>{{ $data->galonCategory->name }}</td>
                 <td>{{ $data->created_at->format('d M Y H:i') }}</td>
                 @switch($data->status_id)
                     @case(1)
@@ -67,7 +65,7 @@
                 <td>{{ $data->review->review }}</td>
                 @else
                 @php
-                    $url=route('user.review.create',['service'=>1,'id'=>$data->id])
+                    $url=route('user.review.create',['service'=>2,'id'=>$data->id])
                 @endphp
                 <td><a class="review-link pointer" style="cursor: pointer;color:#007bff" onclick='Copy("{{$url}}")'>Minta Rating</a></td>
                 <td><a class="review-link pointer" style="cursor: pointer;color:#007bff" onclick='Copy("{{$url}}")'>Minta Review</a></td>
@@ -75,14 +73,14 @@
                 <td><a href="{{ route('admin.contact',$data->customer->phone) }}" target="_blank" rel="noopener noreferrer">Hubungi Customer</a></td>
                 <td>
                   {{-- <a href=""><button class="btn btn-primary">Edit</button></a> --}}
-                  <form action="{{ route('admin.cari_kos.destroy',$data->id) }}" method="post">
+                  <form action="{{ route('admin.pesan_galon.destroy',$data->id) }}" method="post">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger" type="submit">Delete</button>
                   </form>
                 </td>
               </tr>
-              <x-change_status_modal id="{{ $data->id }}" desc="{{ $data->description }}" service="cari_kos" value="{{ $data->status_id }}"></x-change_status_modal>
+              <x-change_status_modal id="{{ $data->id }}" desc="{{ $data->description }}" service="pesan_galon" value="{{ $data->status_id }}"></x-change_status_modal>
           @endforeach
         </tbody>
       </table>

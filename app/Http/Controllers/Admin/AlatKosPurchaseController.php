@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Afiliator;
+use App\Models\AlatKosProduct;
 use App\Models\AlatKosPurchase;
-use App\Models\CateringPurchase;
-use App\Models\Customer;
-use App\Models\GalonPurchase;
-use App\Models\KosSearch;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class AlatKosPurchaseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,17 +16,20 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard',[
-            'cariKos'=> KosSearch::count(),
-            'galonPurchase'=> GalonPurchase::count(),
-            'cateringPurchase'=> CateringPurchase::count(),
-            'alatKosPurchase'=> AlatKosPurchase::count(),
-            'cariKosComplete'=> KosSearch::where('status_id', 3)->count(),
-            'galonPurchaseComplete'=> GalonPurchase::where('status_id', '=', 3)->count(),
-            'cateringPurchaseComplete'=> CateringPurchase::where('status_id', '=', 3)->count(),
-            'alatKosPurchaseComplete'=> AlatKosPurchase::where('status_id', '=', 3)->count(),
-            'customers'=> Customer::count(),
-            'afiliators'=> Afiliator::count(),
+        $alat_kos_purchases = AlatKosPurchase::orderBy('created_at', 'desc')->get();
+        
+        foreach ($alat_kos_purchases as $data) {
+            $items=explode(",",$data->item);
+            $products=[];
+            foreach ($items as $item) {
+                $productName=AlatKosProduct::select('name')->where('id',$item)->first();
+                array_push($products,$productName->name);
+            }
+            $data->item=implode(",",$products);
+        }
+
+        return view('admin.pesanAlatKos.table', [
+            'alat_kos_purchases' => $alat_kos_purchases,
         ]);
     }
 
@@ -97,6 +96,15 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        AlatKosPurchase::destroy($id);
+        return back();
+    }
+
+    public function changeStatus(Request $request, AlatKosPurchase $alatKosPurchase)
+    {
+        $alatKosPurchase->status_id = $request->status;
+        $alatKosPurchase->description = $request->description;
+        $alatKosPurchase->save();
+        return back();
     }
 }

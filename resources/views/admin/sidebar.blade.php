@@ -45,7 +45,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Table
+                Tabel Transaksi
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -54,6 +54,47 @@
                 <a href="{{ route('admin.cari_kos.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pencarian Kos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.pesan_galon.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pemesanan Galon</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.pesan_catering.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pemesanan Catering</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.pesan_alat_kos.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pemesanan Alat Kos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Tabel Users
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.customer.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Customer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.afiliasi.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Afiliator</p>
                 </a>
               </li>
             </ul>

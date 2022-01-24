@@ -32,4 +32,14 @@ class AlatKosPurchase extends Model
     {
         return $this->belongsTo('App\Models\AlatKosProduct', 'item','id');
     }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Status', 'status_id', 'id');
+    }
+
+    public function review()
+    {
+        return $this->belongsTo('App\Models\Review', 'review_id', 'id');
+    }
 }

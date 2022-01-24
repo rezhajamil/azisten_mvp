@@ -51,6 +51,7 @@ class AlatKosPurchaseController extends Controller
         $customer = [
             'name' => $request->name,
             'phone' => $request->phone,
+            'address' => $request->address,
         ];
 
         Customer::updateOrCreate(

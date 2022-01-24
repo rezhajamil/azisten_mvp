@@ -8,23 +8,40 @@
     </button>
     <div class="collapse navbar-collapse mt-lg-3" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0 me-auto d-flex justify-content-between">
-          @foreach ($nav as $name=>$url)
-            @if ($name=="Tentang Kami")
-              <li class="nav-item dropdown">
-                  <a class="nav-link active " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Layanan</a>
-                  <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ route('user.cari_kos.index') }}">Cari Kos</a></li>
-                    <li><a class="dropdown-item" href="{{ route('user.pesan_galon.index') }}">Air Galon</a></li>
-                    <li><a class="dropdown-item" href="{{ route('user.pesan_catering.index') }}">Catering</a></li>
-                    <li><a class="dropdown-item" href="{{ route('user.pesan_alat_kos.index') }}">Peralatan Kos</a></li>
-                  </ul>
-              </li>
+        {{-- @foreach ($nav as $name=>$url)
+          @if ($name=="Tentang Kami")
+            <li class="nav-item dropdown">
+                <a class="nav-link active " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Layanan</a>
+                <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{{ route('user.cari_kos.index') }}">Cari Kos</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.pesan_galon.index') }}">Air Galon</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.pesan_catering.index') }}">Catering</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.pesan_alat_kos.index') }}">Peralatan Kos</a></li>
+                </ul>
+            </li>
             @endif
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ $url }}">{{ $name }}</a>
+              <a class="nav-link active" aria-current="page" href="{{ $url }}">{{ $name }}</a>
             </li>
-            @endforeach
-        </li>
+            @endforeach --}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/afiliasi">Afiliasi</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link active " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Layanan</a>
+                <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{{ route('user.cari_kos.index') }}">Cari Kos</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.pesan_galon.index') }}">Air Galon</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.pesan_catering.index') }}">Catering</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.pesan_alat_kos.index') }}">Peralatan Kos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/about">Tentang Kami</a>
+          </li>
       </ul>
     </div>
   </div>

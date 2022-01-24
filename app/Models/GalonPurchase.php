@@ -31,4 +31,14 @@ class GalonPurchase extends Model
     {
         return $this->belongsTo('App\Models\GalonCategory', 'type', 'id');
     }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Status', 'status_id', 'id');
+    }
+
+    public function review()
+    {
+        return $this->belongsTo('App\Models\Review', 'review_id', 'id');
+    }
 }

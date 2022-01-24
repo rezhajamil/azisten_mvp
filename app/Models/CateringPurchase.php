@@ -37,4 +37,14 @@ class CateringPurchase extends Model
     {
         return $this->belongsTo('App\Models\CateringDuration', 'duration', 'id');
     }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Status', 'status_id', 'id');
+    }
+
+    public function review()
+    {
+        return $this->belongsTo('App\Models\Review', 'review_id', 'id');
+    }
 }

@@ -3,7 +3,11 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\KosSearchController as AdminKosSearch;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Admin\GalonPurchaseController as AdminGalon;
+use App\Http\Controllers\Admin\CateringPurchaseController as AdminCatering;
+use App\Http\Controllers\Admin\AlatKosPurchaseController as AdminAlatKos;
+use App\Http\Controllers\Admin\CustomerController as AdminCustomer;
+use App\Http\Controllers\Admin\AfiliatorController as AdminAfiliator;
 use App\Http\Controllers\User\AfiliatorController as UserAfiliator;
 use App\Http\Controllers\User\KosSearchController as UserCariKos;
 use App\Http\Controllers\User\AlatKosPurchaseController as UserAlatKos;
@@ -11,7 +15,7 @@ use App\Http\Controllers\User\CateringPurchaseController as UserCatering;
 use App\Http\Controllers\User\GalonPurchaseController as UserGalon;
 use App\Http\Controllers\User\ReviewController as UserReview;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,8 +49,16 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('dashboard', AdminDashboard::class);
         Route::resource('cari_kos', AdminKosSearch::class);
+        Route::resource('pesan_galon', AdminGalon::class);
+        Route::resource('pesan_catering', AdminCatering::class);
+        Route::resource('pesan_alat_kos', AdminAlatKos::class);
+        Route::resource('customer', AdminCustomer::class);
+        Route::resource('afiliasi', AdminAfiliator::class);
         Route::put('cari_kos/changeStatus/{kosSearch}', [AdminKosSearch::class, 'changeStatus'])->name('cari_kos.changeStatus');
-        Route::get('customer/contact/{phone}', [CustomerController::class, 'contactCustomer']);
+        Route::put('pesan_galon/changeStatus/{galonPurchase}', [AdminGalon::class, 'changeStatus'])->name('pesan_galon.changeStatus');
+        Route::put('pesan_catering/changeStatus/{cateringPurchase}', [AdminCatering::class, 'changeStatus'])->name('pesan_catering.changeStatus');
+        Route::put('pesan_alat_kos/changeStatus/{alatKosPurchase}', [AdminAlatKos::class, 'changeStatus'])->name('pesan_alat_kos.changeStatus');
+        Route::get('customer/contact/{phone}', [CustomerController::class, 'contactCustomer'])->name('contact');
     });
 
 });

@@ -3,15 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Afiliator;
-use App\Models\AlatKosPurchase;
-use App\Models\CateringPurchase;
-use App\Models\Customer;
 use App\Models\GalonPurchase;
-use App\Models\KosSearch;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class GalonPurchaseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,17 +15,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard',[
-            'cariKos'=> KosSearch::count(),
-            'galonPurchase'=> GalonPurchase::count(),
-            'cateringPurchase'=> CateringPurchase::count(),
-            'alatKosPurchase'=> AlatKosPurchase::count(),
-            'cariKosComplete'=> KosSearch::where('status_id', 3)->count(),
-            'galonPurchaseComplete'=> GalonPurchase::where('status_id', '=', 3)->count(),
-            'cateringPurchaseComplete'=> CateringPurchase::where('status_id', '=', 3)->count(),
-            'alatKosPurchaseComplete'=> AlatKosPurchase::where('status_id', '=', 3)->count(),
-            'customers'=> Customer::count(),
-            'afiliators'=> Afiliator::count(),
+        $galon_purchases=GalonPurchase::orderBy('created_at','desc')->get();
+        return view ('admin.pesanGalon.table',[
+            'galon_purchases'=>$galon_purchases,
         ]);
     }
 
@@ -97,6 +84,16 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        GalonPurchase::destroy($id);
+        return back();
+    }
+    
+
+    public function changeStatus(Request $request, GalonPurchase $galonPurchase)
+    {
+        $galonPurchase->status_id = $request->status;
+        $galonPurchase->description = $request->description;
+        $galonPurchase->save();
+        return back();
     }
 }

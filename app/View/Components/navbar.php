@@ -29,6 +29,8 @@ class Navbar extends Component
             'Tentang Kami' => '/about',
         ];
 
-        return view('components.navbar', compact('nav'));
+        return view('components.navbar', [
+            'nav'=>$nav,
+        ]);
     }
 }

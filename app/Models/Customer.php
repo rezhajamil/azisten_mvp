@@ -28,7 +28,7 @@ class Customer extends Model
 
     public function galonPurchase()
     {
-        return $this->hasMany('App\Models\GalonPurchase', 'customer_id');
+        return $this->hasOne('App\Models\GalonPurchase', 'customer_id');
     }
 
     public function cateringPurchase()

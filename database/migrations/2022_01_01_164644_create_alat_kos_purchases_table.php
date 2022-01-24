@@ -17,10 +17,13 @@ class CreateAlatKosPurchasesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->string('item');
-            $table->foreignId('status_id')->constrained('statuses');
-            $table->foreignId('review_id')->constrained('reviews')->nullable();
+            $table->unsignedBigInteger('status_id')->default(1);
+            $table->unsignedBigInteger('review_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('review_id')->references('id')->on('reviews')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreign('status_id')->references('id')->on('statuses')->cascadeOnUpdate()->restrictOnDelete();
         });
     }
 
