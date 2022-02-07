@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9434f4902baff827ceb1010dfce055e1c6680f84',
+        'reference' => '82f012258f19fa2516df64e52881331433b864d5',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -418,7 +418,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9434f4902baff827ceb1010dfce055e1c6680f84',
+            'reference' => '82f012258f19fa2516df64e52881331433b864d5',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -518,6 +518,15 @@
             'install_path' => __DIR__ . '/../league/oauth1-client',
             'aliases' => array(),
             'reference' => '88dd16b0cff68eb9167bfc849707d2c40ad91ddc',
+            'dev_requirement' => false,
+        ),
+        'midtrans/midtrans-php' => array(
+            'pretty_version' => '2.5.2',
+            'version' => '2.5.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../midtrans/midtrans-php',
+            'aliases' => array(),
+            'reference' => 'a1ad0c824449ca8c68c4cf11b3417ad518311d2b',
             'dev_requirement' => false,
         ),
         'mockery/mockery' => array(

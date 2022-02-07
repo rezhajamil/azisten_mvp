@@ -3,12 +3,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Azisten adalah sebuah platform yang menghubungkan antara mahasiswa dan pemilik 
-kos. Dengan fitur yang kami miliki, mahasiswa dapat mencari kos yang sesuai dengan
-preferensi mereka. Selain itu kami juga menyediakan beberapa fitur yang membantu 
-mahasiswa dalam memenuhi kebutuhan lainnya">
+    kos. Dengan fitur yang kami miliki, mahasiswa dapat mencari kos yang sesuai dengan
+    preferensi mereka. Selain itu kami juga menyediakan beberapa fitur yang membantu 
+    mahasiswa dalam memenuhi kebutuhan lainnya">
     <meta name="author" content="Azisten">
     <link rel="icon" href="{{ asset("images/logo_azisten_icon.svg") }}">
     <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
     <link rel="stylesheet" href="{{ asset("css/theme.css") }}">
     <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
     <link rel="stylesheet" href="{{ asset("vendor/wow/animate.css") }}">

@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\CateringPurchaseController as AdminCatering;
 use App\Http\Controllers\Admin\AlatKosPurchaseController as AdminAlatKos;
 use App\Http\Controllers\Admin\CustomerController as AdminCustomer;
 use App\Http\Controllers\Admin\AfiliatorController as AdminAfiliator;
+use App\Http\Controllers\Admin\CouponController as AdminCoupon;
+use App\Http\Controllers\Admin\CouponRedemptionController as AdminCouponRedemption;
 use App\Http\Controllers\User\AfiliatorController as UserAfiliator;
 use App\Http\Controllers\User\KosSearchController as UserCariKos;
 use App\Http\Controllers\User\AlatKosPurchaseController as UserAlatKos;
@@ -54,13 +56,14 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('pesan_alat_kos', AdminAlatKos::class);
         Route::resource('customer', AdminCustomer::class);
         Route::resource('afiliasi', AdminAfiliator::class);
+        Route::resource('coupon', AdminCoupon::class);
+        Route::resource('coupon_redeem', AdminCouponRedemption::class);
         Route::put('cari_kos/changeStatus/{kosSearch}', [AdminKosSearch::class, 'changeStatus'])->name('cari_kos.changeStatus');
         Route::put('pesan_galon/changeStatus/{galonPurchase}', [AdminGalon::class, 'changeStatus'])->name('pesan_galon.changeStatus');
         Route::put('pesan_catering/changeStatus/{cateringPurchase}', [AdminCatering::class, 'changeStatus'])->name('pesan_catering.changeStatus');
         Route::put('pesan_alat_kos/changeStatus/{alatKosPurchase}', [AdminAlatKos::class, 'changeStatus'])->name('pesan_alat_kos.changeStatus');
         Route::get('customer/contact/{phone}', [CustomerController::class, 'contactCustomer'])->name('contact');
     });
-
 });
 
 // Route::get('/dashboard', function () {

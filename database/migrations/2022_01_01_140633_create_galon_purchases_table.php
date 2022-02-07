@@ -18,11 +18,12 @@ class CreateGalonPurchasesTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->integer('amount');
             $table->unsignedBigInteger('type');
+            $table->string('coupon_code')->nullable();
             $table->unsignedBigInteger('status_id')->default(1);
             $table->unsignedBigInteger('review_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            
+
             $table->foreign('review_id')->references('id')->on('reviews')->cascadeOnUpdate()->restrictOnDelete();
             $table->foreign('status_id')->references('id')->on('statuses')->cascadeOnUpdate()->restrictOnDelete();
         });

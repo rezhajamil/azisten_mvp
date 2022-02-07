@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class GalonPurchase extends Model
 {
-    use HasFactory,SoftDeletes;
-    public $table='galon_purchases';
+    use HasFactory, SoftDeletes;
+    public $table = 'galon_purchases';
 
-    protected $fillable=[
+    protected $fillable = [
         'customer_id',
         'amount',
         'type',
+        'coupon_code',
         'status_id',
         'review_id',
         'created_at',

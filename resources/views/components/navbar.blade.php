@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container">
     <a href="/" class="navbar-brand me-5">
-      <img src="{{ asset("images/logo_azisten.png") }}" width="200" height="40" class="d-inline-block align-text-top">
+      <img src="{{ asset("images/logo_azisten.png") }}" alt="Logo Azisten" width="200" height="40" class="d-inline-block align-text-top">
     </a>
     <button class="navbar-toggler btn btn-green1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars text-white"></i>

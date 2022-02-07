@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Customer extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     public $table = 'customers';
 
@@ -39,5 +39,10 @@ class Customer extends Model
     public function alatKosPurchase()
     {
         return $this->hasMany('App\Models\AlatKosPurchase', 'customer_id');
+    }
+
+    public function couponRedeem()
+    {
+        return $this->hasMany('App\Models\CouponReedemption', 'customer_id');
     }
 }

@@ -10,7 +10,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      {{-- <div class="pb-3 mt-3 mb-3 user-panel d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
@@ -95,6 +95,29 @@
                 <a href="{{ route('admin.afiliasi.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Afiliator</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Tabel Kupon
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.coupon.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kupon</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.coupon_redeem.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kupon Terpakai</p>
                 </a>
               </li>
             </ul>
