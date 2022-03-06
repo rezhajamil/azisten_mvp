@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
     <link rel="stylesheet" href="{{ asset("css/theme.css") }}">
     <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
-    <link rel="stylesheet" href="{{ asset("vendor/wow/animate.css") }}">
     <link rel="stylesheet" href="{{ asset("vendor/owl-carousel/dist/assets/owl.carousel.min.css") }}">
     <link rel="stylesheet" href="{{ asset("vendor/owl-carousel/dist/assets/owl.theme.default.min.css") }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <style>@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');</style>
     <style>@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');</style>
     <script src="https://kit.fontawesome.com/b2ba1193ce.js" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.8.1/dist/cdn.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4R07YJJXK"></script>

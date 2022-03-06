@@ -16,10 +16,10 @@ class KosSearchController extends Controller
      */
     public function index()
     {
-        return view('cari_kos');
+        return view('user.cari_kos.index');
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +27,7 @@ class KosSearchController extends Controller
      */
     public function create()
     {
-        return view('cariKos.table');
+        return view('user.cari_kos.form');
         //
     }
 
@@ -95,7 +95,7 @@ class KosSearchController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('user.cari_kos.detail');
     }
 
     /**

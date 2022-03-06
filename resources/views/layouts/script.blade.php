@@ -2,8 +2,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="{{ asset("js/bootstrap.js") }}"></script>
 <script src="{{ asset("vendor/owl-carousel/dist/owl.carousel.min.js") }}"></script>
-<script src="{{ asset("vendor/wow/wow.js") }}"></script>
-<script>new WOW().init();</script>
 <script>
   $(document).ready(function(){
       document.querySelector(".loading-animation").style.display="none";
@@ -126,6 +124,35 @@
     responsiveClass:true,
     stagePadding:50,
     dots:false,
+    responsive:{
+        0:{
+            items:1,
+            loop:true,
+            nav:false
+        },
+        600:{
+            center:true,
+            items:4,
+            loop:true,
+            nav:false
+        },
+        1000:{
+            center:true,
+            items:5,
+            nav:false,
+            loop:true,
+        }
+    }
+})
+</script>
+
+<script>
+  $('filter.owl-carousel').owlCarousel({
+    loop:false,
+    margin:10,
+    responsiveClass:true,
+    stagePadding:50,
+    dots:false,
     autoplay:true,
     autoplayTimeout:1500,
     autoplayHoverPause:true,
@@ -182,19 +209,19 @@
   }
 </script>
 
-<script>
-  const sign_in_btn = document.querySelector("#sign-in-btn");
-  const sign_up_btn = document.querySelector("#sign-up-btn");
-  const container = document.querySelector(".auth-container");
+  <script>
+//   const sign_in_btn = document.querySelector("#sign-in-btn");
+//   const sign_up_btn = document.querySelector("#sign-up-btn");
+//   const container = document.querySelector(".auth-container");
 
-  sign_up_btn.addEventListener("click", () => {
-    container.classList.add("sign-up-mode");
-  });
+//   sign_up_btn.addEventListener("click", () => {
+//     container.classList.add("sign-up-mode");
+//   });
 
-  sign_in_btn.addEventListener("click", () => {
-    container.classList.remove("sign-up-mode");
-  });
-</script>
+//   sign_in_btn.addEventListener("click", () => {
+//     container.classList.remove("sign-up-mode");
+//   });
+  </script>
 
 <script>
   let labelPaymentInterval= document.querySelector(".payment-interval-label")
@@ -270,35 +297,34 @@
       sliderMaxValue=max;
   }
 
-  function slideOne() {
-    if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
-      sliderOne.value = parseInt(sliderTwo.value) - minGap;
+  function slideOne(d1='price-min',slide1='price-slider-min',slide2='price-slider-max') {
+    if (parseInt(document.getElementById(slide2).value) - parseInt(document.getElementById(slide1).value) <= minGap) {
+      document.getElementById(slide1).value = parseInt(document.getElementById(slide2).value) - minGap;
     }
-    displayValOne.value = sliderOne.value;
+    document.getElementById(d1).value = document.getElementById(slide1).value;
+  }
+
+  function slideTwo(d2='price-max',slide1='price-slider-min',slide2='price-slider-max') {
+    if (parseInt(document.getElementById(slide2).value) - parseInt(document.getElementById(slide1).value) <= minGap) {
+      document.getElementById(slide2).value = parseInt(document.getElementById(slide1).value) + minGap;
+    }
+    document.getElementById(d2).value = document.getElementById(slide2).value;
     // fillColor();
   }
 
-  function slideTwo() {
-    if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
-      sliderTwo.value = parseInt(sliderOne.value) + minGap;
+  function priceOne(d1='price-min',slide1='price-slider-min',slide2='price-slider-max') {
+    if (document.getElementById(d1).value < parseInt(document.getElementById(slide1).min) || document.getElementById(d1).value > (parseInt(document.getElementById(slide2).value)-minGap)) {
+      document.getElementById(d1).value = document.getElementById(slide1).min;
     }
-    displayValTwo.value = sliderTwo.value;
+    document.getElementById(slide1).value = document.getElementById(d1).value;
     // fillColor();
   }
 
-  function priceOne() {
-    if (displayValOne.value < parseInt(sliderOne.min) || displayValOne.value > (parseInt(sliderTwo.value)-minGap)) {
-      displayValOne.value = sliderOne.min;
+  function priceTwo(d2='price-max',slide1='price-slider-min',slide2='price-slider-max') {
+    if (document.getElementById(d2).value > parseInt(document.getElementById(slide2).max) || document.getElementById(d2).value < (parseInt(document.getElementById(slide1).value)+minGap)) {
+      document.getElementById(d2).value = document.getElementById(slide2).max;
     }
-    sliderOne.value = displayValOne.value;
-    // fillColor();
-  }
-
-  function priceTwo() {
-    if (displayValTwo.value > parseInt(sliderTwo.max) || displayValTwo.value < (parseInt(sliderOne.value)+minGap)) {
-      displayValTwo.value = sliderTwo.max;
-    }
-    sliderTwo.value = displayValTwo.value;
+    document.getElementById(slide2).value = document.getElementById(d2).value;
     // fillColor();
   }
 
@@ -341,5 +367,21 @@
       changeSwitchValue();
     }
   }
+</script>
 
+<script>
+  $(document).ready(function(){
+    $("#search-college").on("input", function () {
+					let search = $(this).val();
+					let pattern = new RegExp(search, "i");
+					$(".university").each(function () {
+						let college = $(this).text();
+						if (pattern.test(college)) {
+							$(this).show();
+						} else {
+							$(this).hide();
+						}
+					});
+				});
+  });
 </script>

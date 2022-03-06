@@ -1,8 +1,8 @@
 @extends('layouts.app',['title'=>'Cari Kos|'])
 
 @section('content')
-<div class="cari-kos p-2">
-    <div class="cari-kos-wrapper p-3 p-sm-5">
+<div class="p-2 cari-kos">
+    <div class="p-3 cari-kos-wrapper p-sm-5">
         <div class="cari-kos-title">
             Isi Formulir untuk Mulai Cari Kos Pilihanmu
         </div>
@@ -11,11 +11,11 @@
             <script>
                 var wa=document.querySelector(".flash-data").getAttribute("data-flashdata");
                 Swal.fire({
-                    title: 'Terimakasih',
-                    text: "Permintaan Anda Telah Kami Terima",
+                    title: 'Terimakasih AINSTEIN',
+                    text: "Tolong Kirim Pesan Berikut Agar Permintaannya Diproses Ya",
                     icon: 'success',
                     showCancelButton: false,
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'Kirim Pesan'
                     }).then((result) => {
                     if (result.isConfirmed) {
                         window.open(wa,"_blank");
@@ -56,7 +56,7 @@
                         <option value="Lainnya">Lainnya</option>
                     </select>
                 </div>
-                <div class="other-college my-2 col-12">
+                <div class="my-2 other-college col-12">
                     <label>Nama Kampus</label>
                     <input type="text" name="other_college" class="input form-control" value="{{ old('other_college') }}">
                     <span><a href="#" class="text-danger fs-6 fw-light fst-italic text-decoration-underline" data-bs-toggle="modal" data-bs-target="#termModal">Syarat & Ketentuan Berlaku</a></span>
@@ -66,16 +66,16 @@
                 <div class="col-12 col-sm-4">
                     <label>Kelompok Kos</label>
                 </div>
-                <div class="col-12 col-sm-8 d-flex flex-wrap justify-content-around">
-                    <div class="col-6 p-1">
+                <div class="flex-wrap col-12 col-sm-8 d-flex justify-content-around">
+                    <div class="p-1 col-6">
                         <input type="radio" class="btn-check" name="group" id="g-standard" value="Standard" autocomplete="off" onchange="toogleGroup()">
                         <label class="btn btn-outline-success" for="g-standard"><span class="fw-bold">Standard</span><br><small class="">100rb-800rb/bulan</small></label>
                     </div>
-                    <div class="col-6 p-1">
+                    <div class="p-1 col-6">
                         <input type="radio" class="btn-check" name="group" id="g-elite" value="Elite" autocomplete="off" onchange="toogleGroup()" checked>
                         <label class="btn btn-outline-success" for="g-elite"><span class="fw-bold">Elite</span><br><small class="">900rb-2jt/bulan</small></label>
                     </div>
-                    {{-- <div class="col-6 p-1">
+                    {{-- <div class="p-1 col-6">
                         <input type="radio" class="btn-check" name="group" id="g-other" value="Lainnya" autocomplete="off" onchange="toogleGroup()">
                         <label class="btn btn-outline-success" for="g-other"><span class="fw-bold">Lainnya</span><br></label>
                     </div> --}}
@@ -85,7 +85,7 @@
                 <div class="col-12 col-sm-4">
                     <label>Fasilitas</label>
                 </div>
-                <div class="col-12 col-sm-8 d-flex flex-wrap justify-content-between">
+                <div class="flex-wrap col-12 col-sm-8 d-flex justify-content-between">
                     <div class="col-6 d-flex flex-column justify-content-around">
                         <div class="form-check">
                             <input type="checkbox" name="facility[]" value="AC" class="form-check-input border-green1">
@@ -114,8 +114,8 @@
                             <label class="form-check-label">Akses 24 Jam</label>
                         </div>
                     </div>
-                    <div class="col-12 my-1">
-                        <a class="btn-add-facil bg-transparent border-0 btn-link" onclick="showAddFacil()">+ Fasilitas Lainnya</a>
+                    <div class="my-1 col-12">
+                        <a class="bg-transparent border-0 btn-add-facil btn-link" onclick="showAddFacil()">+ Fasilitas Lainnya</a>
                     </div>
                     <div class="col-12 other-facil-wrapper">
                         <textarea name="other_facil" id="other-facil" class="other-facil form-control" cols="30" rows="2"></textarea>
@@ -130,17 +130,17 @@
                         <input class="form-check-input" name="payment_interval" type="checkbox" role="switch" id="switch-interval" value="Tahun" checked onclick="changeSwitchValue()">
                     </div>
                 </div>
-                <div class="cari-kos-price-range col-12 col-sm-8 my-3">
-                    <div class="d-flex justify-content-around mb-3">
+                <div class="my-3 cari-kos-price-range col-12 col-sm-8">
+                    <div class="mb-3 d-flex justify-content-around">
                         <div class="input-group">
-                            <span class="input-group-text p-1">Rp.</span>
+                            <span class="p-1 input-group-text">Rp.</span>
                             <input type="number" value="8000" name="price_min" class="form-control mw-75" id="price-min" onblur="priceOne()">
-                            <span class="input-group-text px-2 bg-transparent me-1">k</span>
+                            <span class="px-2 bg-transparent input-group-text me-1">k</span>
                         </div>
                         <div class="input-group">
-                            <span class="input-group-text p-1">Rp.</span>
+                            <span class="p-1 input-group-text">Rp.</span>
                             <input type="number" value="20000" name="price_max" class="form-control mw-75 ps-1" id="price-max" onblur="priceTwo()">
-                            <span class="input-group-text px-2 bg-transparent">k</span>
+                            <span class="px-2 bg-transparent input-group-text">k</span>
                         </div>
                     </div>
                     <div class="slider-container">
@@ -161,9 +161,9 @@
                     </select>
                 </div>
             </div>
-            <div class="cari-kos-inputfield terms mt-5 d-none">
+            <div class="mt-5 cari-kos-inputfield terms d-none">
                 <div class="form-check">
-                    <input type="checkbox" class="check-kebijakan form-check-input opacity-100" onclick="toogleSubmit()">
+                    <input type="checkbox" class="opacity-100 check-kebijakan form-check-input" onclick="toogleSubmit()">
                     <label class="m-0 w-100">Menyetujui <a href="/kebijakan" target="_blank">Kebijakan Layanan AZISTEN</a></label>
                 </div>
             </div>
