@@ -48,7 +48,7 @@
       </template>
     </div>
   </div>
-  <section class="px-[12px] mx-auto my-3 lg:px-0 lg:w-4/5">
+  <section class="px-[16px] mx-auto my-3 lg:px-0 lg:w-4/5">
     <div class="flex justify-around gap-x-5">
       <div class="w-full lg:w-3/4">
         <span class="inline-block w-full my-2 text-xl text-prussian text-capitalize fw-bold" x-text="detail_kos.name">Kos Mayadana Pembangunan 3</span>
@@ -108,14 +108,14 @@
             </div>
       </div>
       <div class="flex-col items-center justify-center hidden w-1/4 px-3 py-2 rounded-lg shadow gap-y-2 h-fit lg:flex ">
-          <button class="w-full p-2 transition bg-green-600 rounded hover:bg-green-800" id="btn-booking">
+          <button class="w-full p-2 transition bg-green-600 rounded hover:bg-green-800 btn-booking">
             <i class="mr-2 text-white transition fa-solid fa-receipt"></i>
             <span class="text-lg font-semibold text-white transition">
               Booking Kos
             </span>
           </button>
           <span class="text-base font-bold text-gray-400">OR</span>
-          <button class="w-full p-2 text-white transition border-2 border-green-600 rounded hover:bg-green-500 hover:border-green-500 group" id="btn-ride-sharing">
+          <button class="w-full p-2 text-white transition border-2 border-green-600 rounded hover:bg-green-500 hover:border-green-500 group btn-ride-sharing">
             <i class="mr-2 text-green-600 transition fa-solid fa-motorcycle group-hover:text-white"></i>
             <span class="text-lg font-semibold text-green-600 transition group-hover:text-white">
               Ride Sharing
@@ -126,13 +126,13 @@
     
   </section>
   <div class="fixed bottom-0 lg:hidden flex justify-evenly items-center w-full space-x-2 px-3 py-2 bg-white drop-shadow-[18px_-18px_28px_#d5d5d5]">
-    <button class="w-1/2 p-2 transition bg-green-600 rounded hover:bg-green-800">
+    <button class="w-1/2 p-2 transition bg-green-600 rounded hover:bg-green-800 btn-booking">
       <i class="mr-2 text-white transition fa-solid fa-receipt"></i>
       <span class="text-lg font-semibold text-white transition">
         Booking Kos
       </span>
     </button>
-    <button class="w-1/2 p-2 text-white transition border-2 border-green-600 rounded hover:bg-green-500 hover:border-green-500 group">
+    <button class="w-1/2 p-2 text-white transition border-2 border-green-600 rounded hover:bg-green-500 hover:border-green-500 group btn-ride-sharing">
       <i class="mr-2 text-green-600 transition fa-solid fa-motorcycle group-hover:text-white"></i>
       <span class="text-lg font-semibold text-green-600 transition group-hover:text-white">
         Ride Sharing
@@ -159,10 +159,10 @@
     var ride_sharing_msg='Halo AZISTEN\nSaya ingin menggunakan layanan ride sharing untuk '+detail_kos.name+'\n\n';
 
     $(document).ready(function(){
-      $('#btn-booking').click(function(){
+      $('.btn-booking').click(function(){
         window.location.href=`https://wa.me/6285869205026?text=${encodeURI(booking_msg)}`;
       });
-      $('#btn-ride-sharing').click(function(){
+      $('.btn-ride-sharing').click(function(){
         window.location.href=`https://wa.me/6285869205026?text=${encodeURI(ride_sharing_msg)}`;
       });
     });

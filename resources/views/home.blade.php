@@ -142,7 +142,7 @@
     <div class="p-0 container-md">
       <div class="container mx-0 mt-3 row px-md-0">
         <div class="p-2 bg-black align-self-center col-5 col-lg-2 offset-lg-0 p-md-4 why-icon-contain">
-          <div class="border border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
+          <div class="border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
             <i class="p-3 fas fa-medal why-icon text-green1"></i>
           </div>
         </div>
@@ -151,7 +151,7 @@
           <p class="text-white text-start">Kami merupakan jasa pencarian kos No.1 di Medan</p>
         </div>
         <div class="p-2 bg-black align-self-center col-5 col-lg-2 offset-lg-2 p-md-4 why-icon-contain">
-          <div class="border border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
+          <div class="border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
             <i class="p-3 fas fa-thumbs-up why-icon text-green1"></i>
           </div>
         </div>
@@ -162,7 +162,7 @@
       </div>
       <div class="container mx-0 mt-0 row px-md-0 mt-lg-4">
         <div class="p-2 mt-3 bg-black align-self-center col-5 col-lg-2 offset-lg-0 p-md-4 why-icon-contain">
-          <div class="border border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
+          <div class="border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
             <i class="p-3 fas fa-biking why-icon text-green1"></i>
           </div>
         </div>
@@ -171,7 +171,7 @@
           <p class="text-white text-start">Kami bersedia menemani anda melihat kos pilihan anda.</p>
         </div>
         <div class="p-2 bg-black align-self-center col-5 col-lg-2 offset-lg-2 p-md-4 why-icon-contain">
-          <div class="border border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
+          <div class="border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
             <i class="p-3 fas fa-mobile-alt why-icon text-green1"></i>
           </div>
         </div>
@@ -182,7 +182,7 @@
       </div>
       <div class="container mx-0 row px-md-0 mt-lg-4">
         <div class="p-2 bg-black align-self-center col-5 col-lg-2 offset-lg-0 p-md-4 why-icon-contain">
-          <div class="border border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
+          <div class="border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
             <i class="p-3 fas fa-money-bill-alt why-icon text-green1"></i>
           </div>
         </div>
@@ -191,7 +191,7 @@
           <p class="text-white text-start">Harga yang kami tawarkan terjangkau di kalangan mahasiswa.</p>
         </div>
         <div class="p-2 bg-black align-self-center col-5 col-lg-2 offset-lg-2 p-md-4 why-icon-contain">
-          <div class="border border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
+          <div class="border-2 why-icon-contain border-green1 d-flex justify-content-center align-items-center">
             <i class="p-3 fas fa-user-tie why-icon text-green1"></i>
           </div>
         </div>
