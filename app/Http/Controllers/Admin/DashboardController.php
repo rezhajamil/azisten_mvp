@@ -8,6 +8,7 @@ use App\Models\AlatKosPurchase;
 use App\Models\CateringPurchase;
 use App\Models\Customer;
 use App\Models\GalonPurchase;
+use App\Models\GalonQueue;
 use App\Models\KosSearch;
 use Illuminate\Http\Request;
 
@@ -20,17 +21,18 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard',[
-            'cariKos'=> KosSearch::count(),
-            'galonPurchase'=> GalonPurchase::count(),
-            'cateringPurchase'=> CateringPurchase::count(),
-            'alatKosPurchase'=> AlatKosPurchase::count(),
-            'cariKosComplete'=> KosSearch::where('status_id', 3)->count(),
-            'galonPurchaseComplete'=> GalonPurchase::where('status_id', '=', 3)->count(),
-            'cateringPurchaseComplete'=> CateringPurchase::where('status_id', '=', 3)->count(),
-            'alatKosPurchaseComplete'=> AlatKosPurchase::where('status_id', '=', 3)->count(),
-            'customers'=> Customer::count(),
-            'afiliators'=> Afiliator::count(),
+        return view('admin.dashboard', [
+            'cariKos' => KosSearch::count(),
+            'galonPurchase' => GalonPurchase::count(),
+            'cateringPurchase' => CateringPurchase::count(),
+            'alatKosPurchase' => AlatKosPurchase::count(),
+            'cariKosComplete' => KosSearch::where('status_id', 3)->count(),
+            'galonPurchaseComplete' => GalonPurchase::where('status_id', '=', 3)->count(),
+            'cateringPurchaseComplete' => CateringPurchase::where('status_id', '=', 3)->count(),
+            'alatKosPurchaseComplete' => AlatKosPurchase::where('status_id', '=', 3)->count(),
+            'galonQueue' => GalonQueue::count(),
+            'customers' => Customer::count(),
+            'afiliators' => Afiliator::count(),
         ]);
     }
 

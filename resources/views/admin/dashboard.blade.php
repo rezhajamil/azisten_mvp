@@ -85,7 +85,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Antrian Galon</span>
                 <span class="info-box-number">
-                  {{ $galonPurchaseComplete }} / {{ $galonPurchase }}
+                  {{ $galonQueue }}
                 </span>
               </div>
               <!-- /.info-box-content -->
