@@ -22,7 +22,7 @@ class CreateGalonQueuesTable extends Migration
         });
 
         Schema::table('galon_queues', function (Blueprint $table) {
-            $table->foreign('order_id')->references('id')->on('galon_purchases')->onUpdate('cascade');
+            $table->foreign('order_id')->references('id')->on('galon_purchases')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
