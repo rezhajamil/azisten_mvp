@@ -18,6 +18,7 @@ use App\Http\Controllers\User\GalonPurchaseController as UserGalon;
 use App\Http\Controllers\User\ReviewController as UserReview;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\GalonQueueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,7 @@ Route::prefix('/')->name('user.')->group(function () {
     Route::resource('pesan_catering', UserCatering::class);
     Route::resource('pesan_alat_kos', UserAlatKos::class);
     Route::resource('review', UserReview::class);
+    Route::post('pesan_galon/queue', [GalonQueueController::class, 'getQueue'])->name('pesan_galon.queue');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -58,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('afiliasi', AdminAfiliator::class);
         Route::resource('coupon', AdminCoupon::class);
         Route::resource('coupon_redeem', AdminCouponRedemption::class);
+        Route::resource('antrian_galon', GalonQueueController::class);
         Route::put('cari_kos/changeStatus/{kosSearch}', [AdminKosSearch::class, 'changeStatus'])->name('cari_kos.changeStatus');
         Route::put('pesan_galon/changeStatus/{galonPurchase}', [AdminGalon::class, 'changeStatus'])->name('pesan_galon.changeStatus');
         Route::put('pesan_catering/changeStatus/{cateringPurchase}', [AdminCatering::class, 'changeStatus'])->name('pesan_catering.changeStatus');

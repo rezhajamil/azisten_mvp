@@ -42,4 +42,9 @@ class GalonPurchase extends Model
     {
         return $this->belongsTo('App\Models\Review', 'review_id', 'id');
     }
+
+    public function queue()
+    {
+        return $this->hasOne('App\Models\GalonQueue', 'order_id');
+    }
 }

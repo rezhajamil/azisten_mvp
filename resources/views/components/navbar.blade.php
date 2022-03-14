@@ -35,8 +35,8 @@
                 <ul class="border-0 dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="{{ route('user.cari_kos.index') }}">Cari Kos</a></li>
                   <li><a class="dropdown-item" href="{{ route('user.pesan_galon.index') }}">Air Galon</a></li>
-                  <li><a class="dropdown-item" href="{{ route('user.pesan_catering.index') }}">Catering</a></li>
-                  <li><a class="dropdown-item" href="{{ route('user.pesan_alat_kos.index') }}">Peralatan Kos</a></li>
+                  {{-- <li><a class="dropdown-item" href="{{ route('user.pesan_catering.index') }}">Catering</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.pesan_alat_kos.index') }}">Peralatan Kos</a></li> --}}
                 </ul>
             </li>
             <li class="nav-item">

@@ -9,6 +9,7 @@ use App\Models\CouponRedemption;
 use App\Models\Customer;
 use App\Models\GalonCategory;
 use App\Models\GalonPurchase;
+use App\Models\GalonQueue;
 use Illuminate\Http\Request;
 
 class GalonPurchaseController extends Controller
@@ -95,7 +96,13 @@ class GalonPurchaseController extends Controller
             'type' => $request->type,
             'coupon_code' => $request->coupon,
         ];
+        $order = GalonPurchase::create($galon_purchase);
 
+        $queue = GalonQueue::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'order_id' => $order->id,
+        ]);
 
         $galon_type_name = GalonCategory::find($request->type)->select('name')->first();
 
@@ -104,7 +111,6 @@ class GalonPurchaseController extends Controller
 
         $wa_url = 'https://wa.me/6285869205026?text=' . rawurlencode($text);
 
-        $tes = GalonPurchase::create($galon_purchase);
         return back()->with('success', $wa_url);
     }
 
