@@ -16,7 +16,7 @@ class KosSearchController extends Controller
      */
     public function index()
     {
-        $kosSearches = KosSearch::orderBy('created_at','desc')->get();
+        $kosSearches = KosSearch::orderBy('created_at', 'desc')->get();
         return view('admin.cariKos.table', [
             'kosSearches' => $kosSearches,
         ]);
@@ -91,10 +91,9 @@ class KosSearchController extends Controller
 
     public function changeStatus(Request $request, KosSearch $kosSearch)
     {
-        $kosSearch->status_id=$request->status;
-        $kosSearch->description=$request->description;
+        $kosSearch->status_id = $request->status;
+        $kosSearch->description = $request->description;
         $kosSearch->save();
         return back();
     }
-
 }

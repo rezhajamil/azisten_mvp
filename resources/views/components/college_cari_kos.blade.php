@@ -7,7 +7,7 @@
             </button>
         </div>
         <hr class="mt-2">
-        <div class="w-full max-w-lg py-2 mx-auto" x-data="{selected:null}">
+        <div class="w-full max-w-lg py-2 mx-auto college-filter" x-data="{selected:null}">
             <div class="w-full border-b-2 shadow-md bg-slate-50">
                 <div
                     x-on:click="selected != 1 ? selected = 1 : selected =null"
@@ -35,7 +35,7 @@
                     :style="selected == 1 ? 'max-height: '+ $refs.tab1.scrollHeight+ 'px;':''">
                     <p class="p-2 px-3 text-justify">
                         <a href="#" type="button">
-                            <span class="w-full text-sm text-center">Kampus USU</span>
+                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus USU</span>
                         </a>
                     </p>
                 </div>
@@ -67,7 +67,7 @@
                     :style="selected == 2 ? 'max-height: '+ $refs.tab2.scrollHeight+ 'px;':''">
                     <p class="p-2 px-3 text-justify">
                         <a href="#" type="button">
-                            <span class="w-full text-sm text-center">Kampus POLMED</span>
+                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus POLMED</span>
                         </a>
                     </p>
                 </div>
@@ -99,12 +99,12 @@
                     :style="selected == 3 ? 'max-height: '+ $refs.tab3.scrollHeight+ 'px;':''">
                     <p class="p-2 px-3 text-justify border-b">
                         <a href="#" type="button">
-                            <span class="w-full text-sm text-center">Kampus UINSU 1</span>
+                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus UINSU 1</span>
                         </a>
                     </p>
                     <p class="p-2 px-3 text-justify">
                         <a href="#" type="button">
-                            <span class="w-full text-sm text-center">Kampus UINSU 2</span>
+                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus UINSU 2</span>
                         </a>
                     </p>
                 </div>
@@ -136,7 +136,7 @@
                     :style="selected == 4 ? 'max-height: '+ $refs.tab4.scrollHeight+ 'px;':''">
                     <p class="p-2 px-3 text-justify border-b">
                         <a href="#" type="button">
-                            <span class="w-full text-sm text-center">Kampus UNIMED</span>
+                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus UNIMED</span>
                         </a>
                     </p>
                 </div>

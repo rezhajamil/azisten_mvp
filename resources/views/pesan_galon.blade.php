@@ -32,17 +32,17 @@
         @endif
         <form class="cari-kos-form " action="{{ route('user.pesan_galon.store') }}" method="post">
             @csrf
-            <div class="flex flex-row mb-3">
-                <div class="block">
+            <div class="flex flex-row mb-3 gap-x-2">
+                <div class="flex flex-col">
                     <label class="text-sm text-gray-500">Nama</label>
-                    <input type="text" class="capitalize rounded-sm focus:border-green-500 border-slate-400 focus:ring focus:ring-green-600/40 focus:rounded-sm @error('name')is-invalid @enderror" name="name" placeholder="Nama Anda" value="{{ old('name') }}">
+                    <input type="text" class="w-[90%] px-1 border-[1px] py-2 capitalize rounded-sm  border-slate-400 focus-visible:border-green-600 focus:rounded-sm @error('name')is-invalid @enderror" name="name" placeholder="Nama Anda" value="{{ old('name') }}">
                     <div class="invalid-feedback">
                         Masukkan Nama Anda
                     </div>
                 </div>
-                <div class="block">
+                <div class="flex flex-col ">
                     <label class="text-sm text-gray-500">WA</label>
-                    <input type="text" class="rounded-sm focus:border-green-500 border-slate-400 focus:ring focus:ring-green-600/40 focus:rounded-sm @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="13" placeholder="081234567890" value="{{ old('phone') }}">
+                    <input type="text" class="w-[90%] px-1 border-[1px] py-2 rounded-sm  border-slate-400 focus-visible:border-green-600 focus:rounded-sm @error('phone')is-invalid @enderror" name="phone" pattern="\d*" minlength="11" maxlength="13" placeholder="081234567890" value="{{ old('phone') }}">
                     <div class="invalid-feedback">
                         Masukkan nomor WA (11 s/d 13 angka)
                     </div>
@@ -52,7 +52,7 @@
             </div> --}}
             <div class="cari-kos-inputfield">
                 <label>Alamat</label>
-                <input type="text" class="w-full rounded-sm focus:border-green-500 border-slate-400 focus:ring focus:ring-green-600/40 focus:rounded-sm @error('address')is-invalid @enderror" name="address" value="{{ old('address') }}">
+                <input type="text" class="w-full px-1 border-[1px] py-2 rounded-sm  border-slate-400 focus-visible:border-green-600 focus:rounded-sm @error('address')is-invalid @enderror" name="address" value="{{ old('address') }}">
                 <div class="invalid-feedback">
                     Masukkan Alamat Anda
                 </div>
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="w-1/3 cari-kos-inputfield">
                     <label>Jumlah</label>
-                    <input type="number" class="w-full focus:border-green-500 rounded-sm border-slate-400 focus:ring focus:ring-green-600/40 focus:rounded-sm @error('amount')is-invalid @enderror" name="amount">
+                    <input type="number" class="w-full px-1 border-[1px] py-2  rounded-sm border-slate-400 focus-visible:border-green-600 focus:rounded-sm @error('amount')is-invalid @enderror" name="amount">
                     <div class="invalid-feedback">
                         Masukkan Jumlah Pemesanan
                     </div>
@@ -68,7 +68,7 @@
                 <div class="w-2/3 cari-kos-inputfield flex-column">
                     <label class="m-sm-0">Jenis Air Galon</label>
                     <div class="cari-kos-custom_select">
-                        <select name="type" class="focus:ring focus:border-green-500 focus:ring-green-600/40  @error('type')is-invalid @enderror" value="{{ old('type') }}">
+                        <select name="type" class="focus-visible:border-green-600  @error('type')is-invalid @enderror" value="{{ old('type') }}">
                             <option value="" selected disabled>Pilih Jenis Air Galon</option>
                             @foreach ($galon_categories as $galon_category)
                                 <option value="{{ $galon_category->id }}">{{ $galon_category->name }}</option>
@@ -80,7 +80,7 @@
             <p class="mb-2 italic font-semibold text-green-600 underline cursor-pointer w-fit" onclick="toggleHidden('voucher')">Punya kode voucher?</p>
             <div class="hidden mb-2" id="voucher">
                 <label for="coupon" class="block text-sm text-gray-500">Kode Voucher</label>
-                <input type="text" name="coupon" id="coupon" class="w-1/3 mb-3 uppercase rounded-sm focus:border-green-500 border-slate-400 focus:ring focus:ring-green-600/40 focus:rounded-sm" maxlength="6">
+                <input type="text" name="coupon" id="coupon" class="w-1/3 mb-3 uppercase rounded-sm border-slate-400 focus:focus-visible:border-green-600ocus:rounded-sm" maxlength="6">
             </div>
             <div class="mt-5 cari-kos-inputfield terms d-none">
                 <div class="form-check">

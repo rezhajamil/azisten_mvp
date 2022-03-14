@@ -1,9 +1,9 @@
 <nav class="bg-white shadow-sm navbar navbar-expand-lg navbar-light">
-  <div class="container px-5">
+  <div class="container md:px-5">
     <a href="/" class="navbar-brand me-5">
       <img src="{{ asset("images/logo_azisten.png") }}" alt="Logo Azisten" width="200" height="40" class="align-text-top d-inline-block">
     </a>
-    <button class="navbar-toggler btn btn-green1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="mt-2 navbar-toggler btn btn-green1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="text-white fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse mt-lg-3" id="navbarSupportedContent">

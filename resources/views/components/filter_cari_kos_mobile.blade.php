@@ -12,22 +12,22 @@
                 <span class="mb-2 text-lg font-bold">Tipe Kos</span>
                 <div class="grid grid-cols-3 gap-x-2" x-data="{pria:false,wanita:false,campuran:false}">
                     <div class="box-border overflow-hidden border border-gray-500 rounded-xl" :class="{'bg-green-600':pria}">
-                        <input type="checkbox" class="hidden peer" name="type" id="g_pria" value="pria" x-model="pria">
-                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:text-white " for="g_pria">
+                        <input type="checkbox" class="hidden peer" name="type" id="g_pria_m" value="pria" x-model="pria">
+                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:text-white " for="g_pria_m">
                             <i class="mb-1 text-xl fa-solid fa-person w-fit"></i>
                             Pria
                         </label>
                     </div>
                     <div class="box-border overflow-hidden border border-gray-500 rounded-xl" :class="{'bg-green-600':wanita}">
-                        <input type="checkbox" class="hidden peer" name="type" id="g_wanita" value="wanita" x-model="wanita">
-                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:text-white " for="g_wanita">
+                        <input type="checkbox" class="hidden peer" name="type" id="g_wanita_m" value="wanita" x-model="wanita">
+                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:text-white " for="g_wanita_m">
                             <i class="mb-1 text-xl fa-solid fa-person-dress w-fit"></i>
                             Wanita
                         </label>
                     </div>
                     <div class="box-border overflow-hidden border border-gray-500 rounded-xl" :class="{'bg-green-600':campuran}">
-                        <input type="checkbox" class="hidden peer" name="type" id="g_campuran" value="campuran" x-model="campuran">
-                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:text-white " for="g_campuran">
+                        <input type="checkbox" class="hidden peer" name="type" id="g_campuran_m" value="campuran" x-model="campuran">
+                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:text-white " for="g_campuran_m">
                             <i class="mb-1 text-xl fa-solid fa-restroom w-fit"></i>
                             Campuran
                         </label>
@@ -38,28 +38,28 @@
             <div class="flex flex-col px-3">
                 <span class="mb-2 text-lg font-bold">Fasilitas Kos</span>
                 <div class="grid grid-cols-3 gap-2">
-                    <label for="f_ac" class="flex items-center font-semibold">
-                        <input type="checkbox" name="facility" id="f_ac" class="mr-2 text-green-600 focus:ring-0" value="AC">
+                    <label for="f_ac_m" class="flex items-center font-semibold">
+                        <input type="checkbox" name="facility" id="f_ac_m" class="mr-2 text-green-600 focus:ring-0 accent-green-600" value="AC">
                         AC
                     </label>
-                    <label for="f_wifi" class="flex items-center col-span-2 font-semibold">
-                        <input type="checkbox" name="facility" id="f_wifi" class="mr-2 text-green-600 focus:ring-0" value="Wifi">
+                    <label for="f_wifi_m" class="flex items-center col-span-2 font-semibold">
+                        <input type="checkbox" name="facility" id="f_wifi_m" class="mr-2 text-green-600 focus:ring-0 accent-green-600" value="Wifi">
                         Wifi
                     </label>
-                    <label for="f_kasur" class="flex items-center font-semibold">
-                        <input type="checkbox" name="facility" id="f_kasur" class="mr-2 text-green-600 focus:ring-0" value="Kasur">
+                    <label for="f_kasur_m" class="flex items-center font-semibold">
+                        <input type="checkbox" name="facility" id="f_kasur_m" class="mr-2 text-green-600 focus:ring-0 accent-green-600" value="Kasur">
                         Kasur
                     </label>
-                    <label for="f_kamar_mandi" class="flex items-center col-span-2 font-semibold">
-                        <input type="checkbox" name="facility" id="f_kamar_mandi" class="mr-2 text-green-600 focus:ring-0" value="Kamar Mandi Dalam">
+                    <label for="f_kamar_mandi_m" class="flex items-center col-span-2 font-semibold">
+                        <input type="checkbox" name="facility" id="f_kamar_mandi_m" class="mr-2 text-green-600 focus:ring-0 accent-green-600" value="Kamar Mandi Dalam">
                         Kamar Mandi Dalam
                     </label>
-                    <label for="f_meja" class="flex items-center font-semibold">
-                        <input type="checkbox" name="facility" id="f_meja" class="mr-2 text-green-600 focus:ring-0" value="Meja">
+                    <label for="f_meja_m" class="flex items-center font-semibold">
+                        <input type="checkbox" name="facility" id="f_meja_m" class="mr-2 text-green-600 focus:ring-0 accent-green-600" value="Meja">
                         Meja
                     </label>
-                    <label for="f_akses" class="flex items-center col-span-2 font-semibold">
-                        <input type="checkbox" name="facility" id="f_akses" class="mr-2 text-green-600 focus:ring-0" value="Akses 24 Jam">
+                    <label for="f_akses_m" class="flex items-center col-span-2 font-semibold">
+                        <input type="checkbox" name="facility" id="f_akses_m" class="mr-2 text-green-600 focus:ring-0 accent-green-600" value="Akses 24 Jam">
                         Akses 24 Jam
                     </label>
                 </div>
@@ -85,23 +85,23 @@
                     <input type="range" min="0" max="20000" value="20000" step="500" id="price-slider-max-mobile" class="price-slider" oninput="slideTwo('price-max-mobile','price-slider-min-mobile','price-slider-max-mobile')">
                 </div>
             </div>
-            <hr class="mx-3 my-4 opacity-30">
+            {{-- <hr class="mx-3 my-4 opacity-30">
             <div class="flex flex-col px-3">
                 <span class="mb-2 text-lg font-bold">Waktu Pembayaran</span>
                 <div class="grid grid-cols-2 gap-x-2">
                     <div class="overflow-hidden border border-gray-500 rounded-lg">
-                        <input type="radio" class="hidden peer" name="type" id="p_bulanan" value="bulanan">
-                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:bg-green-600 peer-checked:text-white " for="p_bulanan" >
+                        <input type="radio" class="hidden peer" name="payment" id="p_bulanan_m" value="bulanan">
+                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:bg-green-600 peer-checked:text-white " for="p_bulanan_m" >
                             Bulanan
                         </label>
                     </div>
                     <div class="overflow-hidden border border-gray-500 rounded-lg">
-                        <input type="radio" class="hidden peer" name="type" id="p_tahunan" value="tahunan" checked>
-                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:bg-green-600 peer-checked:text-white "  for="p_tahunan">
+                        <input type="radio" class="hidden peer" name="payment" id="p_tahunan_m" value="tahunan" checked>
+                        <label class="flex flex-col items-center justify-center p-2 font-semibold text-gray-600 peer-checked:bg-green-600 peer-checked:text-white "  for="p_tahunan_m">
                             Tahunan
                         </label>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>

@@ -2,7 +2,7 @@
   @extends('layouts.app',['footer'=>true])
   @section('content')
   <div class="px-0 my-3 container-lg">
-    <div class="jumbotron d-flex" style="background-image: url({{ asset("images/jumbotron.jpg") }});">
+    <div class="jumbotron d-flex rounded-0" style="background-image: url({{ asset("images/jumbotron.jpg") }});">
       <div class="container mt-auto text-white j-capt justify-content-end flex-column">
         <div class="col-lg-5 offset-lg-1">
           <p class="mb-2 display-3 fw-bold">Mau Cari Kosan ?</p>
@@ -34,63 +34,69 @@
 
   <section class="py-3 mt-3 kos-list mt-md-5">
     <div class="kos-carousel owl-carousel">
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/1/kos_1_1.jpeg") }}" alt="kos_1" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/2/kos_2_1.jpeg") }}" alt="kos_2" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/3/kos_3_1.jpeg") }}" alt="kos_3" class="img-fluid rounded-3"></a></div>
-      {{-- <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/4/kos_4_1.jpeg") }}" alt="kos_4" class="img-fluid rounded-3"></a></div> --}}
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/5/kos_5_1.jpeg") }}" alt="kos_5" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/6/kos_6_1.jpeg") }}" alt="kos_6" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/7/kos_7_1.jpeg") }}" alt="kos_7" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/8/kos_8_1.jpeg") }}" alt="kos_8" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/9/kos_9_1.jpeg") }}" alt="kos_9" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/10/kos_10_1.jpeg")}}" alt="kos_10" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/12/kos_12_1.jpeg")}}" alt="kos_12" class="img-fluid rounded-3"></a></div>
-      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/13/kos_13_1.jpeg")}}" alt="kos_13" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/1/kos_1_1.jpeg") }}" alt="kos_1" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/2/kos_2_1.jpeg") }}" alt="kos_2" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/3/kos_3_1.jpeg") }}" alt="kos_3" class="img-fluid rounded-3"></a></div>
+      {{-- <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/4/kos_4_1.jpeg") }}" alt="kos_4" class="img-fluid rounded-3"></a></div> --}}
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/5/kos_5_1.jpeg") }}" alt="kos_5" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/6/kos_6_1.jpeg") }}" alt="kos_6" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/7/kos_7_1.jpeg") }}" alt="kos_7" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/8/kos_8_1.jpeg") }}" alt="kos_8" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/9/kos_9_1.jpeg") }}" alt="kos_9" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/10/kos_10_1.jpeg")}}" alt="kos_10" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/12/kos_12_1.jpeg")}}" alt="kos_12" class="img-fluid rounded-3"></a></div>
+      <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/13/kos_13_1.jpeg")}}" alt="kos_13" class="img-fluid rounded-3"></a></div>
       {{-- <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/14/kos_14_1.jpeg")}}" alt="kos_14" class="img-fluid rounded-3"></a></div> --}}
       {{-- <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/15/kos_15_1.jpeg")}}" alt="kos_15" class="img-fluid rounded-3"></a></div> --}}
     </div>
   </section>
 
   <section class="my-2 layanan my-md-4">
-    <div class="container">
+    <div class="px-2 lg:px-5">
       <div class="mb-2 row layanan-head">
         <div class="col-lg-9">
           <p class="title h2 text-dark1 fw-bold">Layanan Azisten Lainnya</p>
         </div>
       </div>
-      <div class="flex justify-center gap-x-6">
-        <div class="w-1/4">
-          <a href="/pesan_galon">
-            <div class="p-2 rounded-2xl hover:scale-110 transition d-flex align-items-center bg-green1 lg:p-4 w-fit">
-              <div class="col-4 layanan-icon pe-2">
-                <img src="{{ asset("images/icons/gallon.png") }}" alt="air galon" class="img-fluid">
+      <div class="flex justify-evenly gap-x-6">
+        <div class="w-1/3 md:w-1/4">
+          <a href="/pesan_galon" class="flex h-full">
+            <div class="flex px-2 py-3 transition duration-500 rounded-[4px] lg:py-3 lg:px-2 gap-x-1 md:rounded-xl lg:rounded-2xl hover:scale-110 align-items-center bg-green1 lg:p-4 w-fit">
+              <div class="w-1/3 pr-2 layanan-icon">
+                <img src="{{ asset("images/icons/gallon.png") }}" alt="air galon">
               </div>
-              <div class="px-1 col-8 layanan-name px-md-3">
-                <span class="text-white fw-bold text-nowrap">Air Galon</span>
+              <span class="w-2/3 text-sm text-white lg:text-3xl fw-bold lg:text-nowrap">Galon Express</span>
+            </div>
+          </a>
+        </div>
+        <div class="w-1/3 md:w-1/4">
+          <a href="/pesan_catering" class="flex h-full" x-on:click.prevent>
+            <div class="relative flex px-2 py-3 transition duration-500 rounded-[4px] group lg:py-3 lg:px-2 gap-x-1 md:rounded-xl lg:rounded-2xl hover:scale-110 align-items-center bg-green1 lg:p-4 w-fit">
+              <div class="w-1/3 pr-2 layanan-icon">
+                <img src="{{ asset("images/icons/food-tray.png") }}" alt="catering">
+              </div>
+              <span class="w-2/3 text-sm text-white lg:text-3xl fw-bold lg:text-nowrap">Catering</span>
+              <div class="absolute hidden px-3 py-1 bg-red-600 rounded-lg -top-2 right-2 md:block">
+                <span class="text-sm font-bold text-white text-nowrap">Coming Soon</span>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center px-3 py-1 transition-all bg-red-600 rounded opacity-[0] md:hidden group-hover:opacity-100">
+                <span class="text-sm font-bold text-white text-nowrap">Coming Soon</span>
               </div>
             </div>
           </a>
         </div>
-        <div class="w-1/4">
-          <a href="/pesan_catering">
-            <div class="p-2 rounded-2xl hover:scale-110 transition d-flex align-items-center bg-green1 lg:p-4 w-fit">
-              <div class="col-4 layanan-icon pe-2">
-                <img src="{{ asset("images/icons/food-tray.png") }}" alt="catering makanan" class="img-fluid">
+        <div class="w-1/3 md:w-1/4">
+          <a href="/pesan_alat_kos" class="flex h-full" x-on:click.prevent>
+            <div class="relative flex px-2 py-3 transition duration-500 rounded-[4px] group lg:py-3 lg:px-2 gap-x-1 md:rounded-xl lg:rounded-2xl hover:scale-110 align-items-center bg-green1 lg:p-4 w-fit">
+              <div class="w-1/3 pr-2 layanan-icon">
+                <img src="{{ asset("images/icons/shopping-cart.png") }}" alt="alat kos">
               </div>
-              <div class="px-1 col-8 layanan-name px-md-3">
-                <span class="text-white fw-bold text-nowrap">Catering</span>
+              <span class="w-2/3 text-sm text-white lg:text-3xl fw-bold lg:text-nowrap">Alat Kos</span>
+              <div class="absolute hidden px-3 py-1 bg-red-600 rounded-lg -top-2 right-2 md:block">
+                <span class="text-sm font-bold text-white text-nowrap">Coming Soon</span>
               </div>
-            </div>
-          </a>
-        </div>
-        <div class="w-1/4">
-          <a href="/pesan_alat_kos">
-            <div class="p-2 rounded-2xl hover:scale-110 transition d-flex align-items-center bg-green1 lg:p-4 w-fit">
-              <div class="col-4 layanan-icon pe-2">
-                <img src="{{ asset("images/icons/shopping-cart.png") }}" alt="belanja peralatan kos" class="img-fluid">
-              </div>
-              <div class="px-1 col-8 layanan-name px-md-3">
-                <span class="text-white fw-bold text-nowrap ">Alat Kos</span>
+              <div class="absolute inset-0 flex items-center justify-center px-3 py-1 transition-all bg-red-600 rounded opacity-[0] md:hidden group-hover:opacity-100">
+                <span class="text-sm font-bold text-white text-nowrap">Coming Soon</span>
               </div>
             </div>
           </a>

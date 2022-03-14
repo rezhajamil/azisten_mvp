@@ -6,9 +6,9 @@
     <div class="hidden my-2 lg:flex lg:col-span-full" x-data={sort:false,college:false}>
         <div class="px-3 py-2 transition-all border rounded-lg cursor-pointer border-slate-500 group hover:bg-green-600" x-on:click="college=!college" :class="college?'bg-green-600':''">
             <span class="text-xl font-semibold text-neutral-900 group-hover:text-white":class="college?'text-white':''">Kampus : </span>
-            <span class="text-xl font-semibold text-neutral-900 group-hover:text-white":class="college?'text-white':''">-</span>
+            <span class="text-xl font-semibold text-neutral-900 group-hover:text-white college-name":class="college?'text-white':''">-</span>
         </div>
-        <div class="flex ml-auto space-x-2">
+        <div class="flex ml-3 space-x-2">
             <div class="px-3 py-2 transition-all border rounded-lg cursor-pointer border-slate-500 group hover:bg-green-600">
                 <i class="mx-1 text-lg transition select-none text-neutral-900 fa-solid fa-star group-hover:text-white"></i>
                 <span class="text-lg font-semibold transition select-none text-neutral-900 group-hover:text-white">Rekomendasi</span>
@@ -20,22 +20,22 @@
                 </div>
                 <ul class="absolute right-0 z-30 w-64 mt-1 list-none bg-white border border-gray-500 rounded shadow-lg top-full" x-show="sort" x-on:click.away="sort=false" x-transition>
                     <li class="border-b ">
-                        <a href="" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white">Urutkan dari A-Z</a>
+                        <a href="#" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white sort_name_asc" x-on:click="sort=false">Urutkan dari A-Z</a>
                     </li>
                     <li class="border-b ">
-                        <a href="" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white">Urutkan dari Z-A</a>
+                        <a href="#" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white sort_name_dsc" x-on:click="sort=false">Urutkan dari Z-A</a>
                     </li>
                     <li class="border-b ">
-                        <a href="" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white">Urutkan dari Harga Terendah</a>
+                        <a href="#" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white sort_price_asc" x-on:click="sort=false">Urutkan dari Harga Terendah</a>
                     </li>
                     <li class="border-b ">
-                        <a href="" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white">Urutkan dari Harga Tertinggi</a>
+                        <a href="#" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white sort_price_dsc" x-on:click="sort=false">Urutkan dari Harga Tertinggi</a>
                     </li>
                     <li class="border-b ">
-                        <a href="" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white">Urutkan dari Jarak Terdekat</a>
+                        <a href="#" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white sort_distance_asc" x-on:click="sort=false">Urutkan dari Jarak Terdekat</a>
                     </li>
                     <li class="">
-                        <a href="" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white">Urutkan dari Jarak Terjauh</a>
+                        <a href="#" class="block w-full h-full px-3 py-2 font-semibold text-green-600 hover:bg-green-600 hover:text-white sort_distance_dsc" x-on:click="sort=false">Urutkan dari Jarak Terjauh</a>
                     </li>
                 </ul>
             </div>
@@ -56,7 +56,7 @@
                 <i class="mx-1 text-lg text-green-600 transition fa-solid fa-building-columns group-hover:text-white"></i>
                 <span class="inline-block font-semibold text-slate-800 group-hover:text-white">Kampus</span>
             </button>
-            <button class="p-1 transition border-r-2 border-green-500 hover:rounded bg-slate-50/0 group hover:bg-green-600" x-on:click="sort=!sort">
+            <button class="p-1 transition border-r-2 border-green-500 hover:rounded bg-slate-50/0 group hover:bg-green-600" x-on:click="sort=!sort,bsc=true">
                 <i class="mx-1 text-lg text-green-600 transition fa-solid fa-sort group-hover:text-white"></i>
                 <span class="inline-block font-semibold text-slate-800 group-hover:text-white">Urutkan</span>
             </button>
@@ -69,7 +69,7 @@
         <x-sorting_cari_kos_mobile></x-sorting_cari_kos_mobile>
         <x-college_cari_kos_mobile></x-college_cari_kos_mobile>
     </div>
-    <div class="grid lg:grid-cols-3 lg:col-span-6 lg:gap-2 col-span-full" style="display: none">
+    <div class="grid lg:grid-cols-3 lg:col-span-6 lg:gap-2 col-span-full kos-loading" style="display: none">
         <div class="col-span-1">
             <div class="flex p-3 rounded-md shadow flex-column">
                 <a href="" target="_blank" class="relative w-full h-40 mb-2 bg-gray-300 animate-pulse">
@@ -104,67 +104,64 @@
             </div>
         </div>
     </div>
-    <div class="grid lg:grid-cols-3 lg:col-span-6 lg:gap-2 col-span-full">
-        <div class="col-span-1">
-            <div class="flex p-3 rounded-md shadow flex-column">
-                <a href="{{ route('user.cari_kos.show',1) }}" target="_blank" class="relative w-full mb-2">
-                    <img src="{{ asset("images/kos/1/1/kos_1_1.jpeg") }}" alt="Kos" class="object-cover object-center w-full max-h-40">
-                    <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white bottom-3">Pria</span>
-                </a>
-                <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">Kos Mayadana</span>
-                <div class="flex p-0 mb-1 align-items-center">
-                    <i class="text-sm text-gray-500 fa-solid fa-location-dot"></i>
-                    <span class="ml-1 text-sm text-gray-500">1 Km</span>
+    <div class="grid lg:grid-cols-3 lg:col-span-6 lg:gap-2 col-span-full gap-y-2" id="kos-list">
+        {{-- <div class="col-span-1 kos-item">
+            <a href="{{ route('user.cari_kos.show',1) }}" target="_blank" rel="noopener noreferrer">
+                <div class="flex p-3 rounded-md shadow flex-column">
+                    <div class="relative w-full mb-2">
+                        <img src="{{ asset("images/kos/1/1/kos_1_1.jpeg") }}" alt="Kos" class="object-cover object-center w-full max-h-40">
+                        <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white kos-type bottom-3">Pria</span>
+                    </div>
+                    <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">Kos Mayadana</span>
+                    <span class="hidden kos-college">Kampus USU</span>
+                    <div class="flex p-0 mb-1 align-items-center">
+                        <i class="text-sm text-gray-500 fa-solid fa-location-dot"></i>
+                        <span class="ml-1 text-sm text-gray-500">1 Km</span>
+                    </div>
+                    <span class="mb-2 text-sm text-gray-500 d-inline-block kos-facility">AC, Wifi, Kamar Mandi Dalam</span>
+                    <p class="text-xl font-semibold">Rp<span class="kos-price">6.000.000</span><span class="text-gray-600">/tahun</span></p>
                 </div>
-                <span class="mb-2 text-sm text-gray-500 d-inline-block">AC, Wifi, Kamar Mandi Dalam</span>
-                <p class="text-xl font-semibold">Rp6.000.000<span class="text-gray-600">/tahun</span></p>
-            </div>
+            </a>
         </div>
-        <div class="col-span-1">
-            <div class="flex p-3 rounded-md shadow flex-column">
-                <a href="{{ route('user.cari_kos.show',1) }}" target="_blank" class="relative w-full mb-2">
-                    <img src="{{ asset("images/kos/1/3/kos_3_1.jpeg") }}" alt="Kos" class="object-cover object-center w-full max-h-40">
-                    <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white bottom-3">Pria</span>
-                </a>
-                <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">Kos Mayadana</span>
-                <div class="flex p-0 mb-1 align-items-center">
-                    <i class="text-sm text-gray-500 fa-solid fa-location-dot"></i>
-                    <span class="ml-1 text-sm text-gray-500">1 Km</span>
+        <div class="col-span-1 kos-item">
+            <a href="{{ route('user.cari_kos.show',1) }}" target="_blank" rel="noopener noreferrer">
+                <div class="flex p-3 rounded-md shadow flex-column">
+                    <div class="relative w-full mb-2">
+                        <img src="{{ asset("images/kos/1/2/kos_2_1.jpeg") }}" alt="Kos" class="object-cover object-center w-full max-h-40">
+                        <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white kos-type bottom-3">Wanita</span>
+                    </div>
+                    <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">Kos Tentrem</span>
+                    <span class="hidden kos-college" id="acs">Kampus POLMED</span>
+                    <div class="flex p-0 mb-1 align-items-center">
+                        <i class="text-sm text-gray-500 fa-solid fa-location-dot"></i>
+                        <span class="ml-1 text-sm text-gray-500">2 Km</span>
+                    </div>
+                    <span class="mb-2 text-sm text-gray-500 d-inline-block kos-facility">Kamar Mandi Dalam</span>
+                    <p class="text-xl font-semibold">Rp<span class="kos-price">12.000.000</span><span class="text-gray-600">/tahun</span></p>
                 </div>
-                <span class="mb-2 text-sm text-gray-500 d-inline-block">AC, Wifi, Kamar Mandi Dalam</span>
-                <p class="text-xl font-semibold">Rp6.000.000<span class="text-gray-600">/tahun</span></p>
-            </div>
+            </a>
         </div>
-        <div class="col-span-1">
-            <div class="flex p-3 rounded-md shadow flex-column">
-                <a href="{{ route('user.cari_kos.show',1) }}" target="_blank" class="relative w-full mb-2">
-                    <img src="{{ asset("images/kos/1/1/kos_1_1.jpeg") }}" alt="Kos" class="object-cover object-center w-full max-h-40">
-                    <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white bottom-3">Pria</span>
-                </a>
-                <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">Kos Mayadana</span>
-                <div class="flex p-0 mb-1 align-items-center">
-                    <i class="text-sm text-gray-500 fa-solid fa-location-dot"></i>
-                    <span class="ml-1 text-sm text-gray-500">1 Km</span>
+        <div class="col-span-1 kos-item">
+            <a href="{{ route('user.cari_kos.show',1) }}" target="_blank" rel="noopener noreferrer">
+                <div class="flex p-3 rounded-md shadow flex-column">
+                    <div class="relative w-full mb-2">
+                        <img src="{{ asset("images/kos/1/3/kos_3_1.jpeg") }}" alt="Kos" class="object-cover object-center w-full max-h-40">
+                        <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white kos-type bottom-3">Campuran</span>
+                    </div>
+                    <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">Kos Hijau</span>
+                    <span class="hidden kos-college">Kampus UINSU 1</span>
+                    <div class="flex p-0 mb-1 align-items-center">
+                        <i class="text-sm text-gray-500 fa-solid fa-location-dot"></i>
+                        <span class="ml-1 text-sm text-gray-500">0.5 Km</span>
+                    </div>
+                    <span class="mb-2 text-sm text-gray-500 d-inline-block kos-facility">AC, Kamar Mandi Dalam</span>
+                    <p class="text-xl font-semibold">Rp<span class="kos-price">5.000.000</span><span class="text-gray-600">/tahun</span></p>
                 </div>
-                <span class="mb-2 text-sm text-gray-500 d-inline-block">AC, Wifi, Kamar Mandi Dalam</span>
-                <p class="text-xl font-semibold">Rp6.000.000<span class="text-gray-600">/tahun</span></p>
-            </div>
-        </div>
-        <div class="col-span-1">
-            <div class="flex p-3 rounded-md shadow flex-column">
-                <a href="{{ route('user.cari_kos.show',1) }}" target="_blank" class="relative w-full mb-2">
-                    <img src="{{ asset("images/kos/1/1/kos_1_1.jpeg") }}" alt="Kos" class="object-cover object-center w-full max-h-40">
-                    <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white bottom-3">Pria</span>
-                </a>
-                <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">Kos Mayadana</span>
-                <div class="flex p-0 mb-1 align-items-center">
-                    <i class="text-sm text-gray-500 fa-solid fa-location-dot"></i>
-                    <span class="ml-1 text-sm text-gray-500">1 Km</span>
-                </div>
-                <span class="mb-2 text-sm text-gray-500 d-inline-block">AC, Wifi, Kamar Mandi Dalam</span>
-                <p class="text-xl font-semibold">Rp6.000.000<span class="text-gray-600">/tahun</span></p>
-            </div>
-        </div>
+            </a>
+        </div> --}}
+    </div>
+    <div class="flex justify-center my-3 col-span-full">
+        <span class="text-sm font-bold text-green-600 sm:text-lg">Tidak menemukan kos yang sesuai? Request pencarian kos <a href="{{ route('user.cari_kos.create') }}" class="text-green-600 underline">disini</a></span>
     </div>
 </section>
 
