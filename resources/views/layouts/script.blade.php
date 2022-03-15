@@ -514,7 +514,7 @@
                 <a href="/cari_kos/${data.id}" target="_blank" rel="noopener noreferrer">
                     <div class="flex p-3 rounded-md shadow flex-column">
                         <div class="relative w-full mb-2">
-                            <img src="images/kos_new/${data.id}/cover.jpeg" alt="Kos" class="object-cover object-center w-full max-h-40">
+                            <img src="images/kos_new/${data.id}/1.jpeg" alt="Kos" class="object-cover object-center w-full max-h-40">
                             <span class="absolute inline-block px-3 py-1 font-bold text-green-600 transition bg-slate-50 text-uppercase hover:bg-green-500 hover:text-white kos-type bottom-3">${data.type}</span>
                         </div>
                         <span class="mb-1 text-xl text-prussian text-capitalize fw-bold">${data.name}</span>

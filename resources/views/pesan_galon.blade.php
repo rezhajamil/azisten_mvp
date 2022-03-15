@@ -11,11 +11,11 @@
             <script>
                 var wa=document.querySelector(".flash-data").getAttribute("data-flashdata");
                 Swal.fire({
-                    title: 'Terimakasih',
-                    text: "Pesanan Anda Telah Kami Terima",
+                    title: 'Terimakasih AINSTEIN',
+                    text: "Tolong Kirim Pesan Berikut Agar Permintaannya Diproses Ya",
                     icon: 'success',
                     showCancelButton: false,
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'Kirim Pesan'
                     }).then((result) => {
                     if (result.isConfirmed) {
                         window.open(wa,"_blank");
@@ -104,7 +104,7 @@
         </div>
     </div>
     <div class="absolute inset-0 flex items-center justify-center w-full h-full bg-neutral-800/60" x-show="queue">
-        <div class="flex flex-col items-center justify-center px-4 py-3 bg-white rounded-lg" x-show="queue" x-transition>
+        <div class="flex flex-col items-center justify-center px-4 py-3 bg-white rounded-lg" x-transition>
             <a href="#" type="button" class="ml-auto font-bold text-black" x-on:click="queue=false">X</a>
             <span class="mb-3 text-lg font-bold text-green-600">Cek Antrianmu</span>
             <form action="{{ route('user.pesan_galon.queue') }}" method="POST" class="form-queue">

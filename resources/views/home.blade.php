@@ -32,12 +32,11 @@
     </div>
   </div>
 
-  <section class="py-3 mt-3 kos-list mt-md-5">
+  {{-- <section class="py-3 mt-3 kos-list mt-md-5">
     <div class="kos-carousel owl-carousel">
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/1/kos_1_1.jpeg") }}" alt="kos_1" class="img-fluid rounded-3"></a></div>
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/2/kos_2_1.jpeg") }}" alt="kos_2" class="img-fluid rounded-3"></a></div>
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/3/kos_3_1.jpeg") }}" alt="kos_3" class="img-fluid rounded-3"></a></div>
-      {{-- <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/4/kos_4_1.jpeg") }}" alt="kos_4" class="img-fluid rounded-3"></a></div> --}}
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/5/kos_5_1.jpeg") }}" alt="kos_5" class="img-fluid rounded-3"></a></div>
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/6/kos_6_1.jpeg") }}" alt="kos_6" class="img-fluid rounded-3"></a></div>
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/7/kos_7_1.jpeg") }}" alt="kos_7" class="img-fluid rounded-3"></a></div>
@@ -46,10 +45,8 @@
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/10/kos_10_1.jpeg")}}" alt="kos_10" class="img-fluid rounded-3"></a></div>
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/12/kos_12_1.jpeg")}}" alt="kos_12" class="img-fluid rounded-3"></a></div>
       <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos_old/1/13/kos_13_1.jpeg")}}" alt="kos_13" class="img-fluid rounded-3"></a></div>
-      {{-- <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/14/kos_14_1.jpeg")}}" alt="kos_14" class="img-fluid rounded-3"></a></div> --}}
-      {{-- <div class="kos-image rounded-3"><a href="/cari_kos" target="_blank"><img src="{{ asset("images/kos/1/15/kos_15_1.jpeg")}}" alt="kos_15" class="img-fluid rounded-3"></a></div> --}}
     </div>
-  </section>
+  </section> --}}
 
   <section class="my-2 layanan my-md-4">
     <div class="px-2 lg:px-5">
