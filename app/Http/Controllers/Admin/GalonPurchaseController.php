@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\GalonPurchase;
+use App\Models\GalonQueue;
 use Illuminate\Http\Request;
 
 class GalonPurchaseController extends Controller
@@ -15,9 +16,9 @@ class GalonPurchaseController extends Controller
      */
     public function index()
     {
-        $galon_purchases=GalonPurchase::orderBy('created_at','desc')->get();
-        return view ('admin.pesanGalon.table',[
-            'galon_purchases'=>$galon_purchases,
+        $galon_purchases = GalonPurchase::orderBy('created_at', 'desc')->get();
+        return view('admin.pesanGalon.table', [
+            'galon_purchases' => $galon_purchases,
         ]);
     }
 
@@ -85,15 +86,20 @@ class GalonPurchaseController extends Controller
     public function destroy($id)
     {
         GalonPurchase::destroy($id);
+        GalonQueue::where('order_id', $id)->delete();
         return back();
     }
-    
+
 
     public function changeStatus(Request $request, GalonPurchase $galonPurchase)
     {
         $galonPurchase->status_id = $request->status;
         $galonPurchase->description = $request->description;
         $galonPurchase->save();
+
+        if ($request->status == 3 || $request->status == 5) {
+            GalonQueue::where('order_id', $galonPurchase->id)->delete();
+        }
         return back();
     }
 }
