@@ -259,14 +259,14 @@ class KosController extends Controller
         $kos = Kos::find($id);
 
         $kosAddress = $kos->address;
-        $kosAddress = KosAddress::find($kosAddress->id);
+        $kosAddress = KosAddress::find($kosAddress);
 
         $kosYearlyRent = $kos->yearly_rent;
-        $kosYearlyRent = KosYearlyRent::find($kosYearlyRent->id);
+        $kosYearlyRent = KosYearlyRent::find($kosYearlyRent);
 
         if ($kos->monthly_rent) {
             $kosMonthlyRent = $kos->monthly_rent;
-            $kosMonthlyRent = KosMonthlyRent::find($kosMonthlyRent->id);
+            $kosMonthlyRent = KosMonthlyRent::find($kosMonthlyRent);
             $kosMonthlyRent->delete();
         }
 
