@@ -48,7 +48,7 @@
     </div>
   </section> --}}
 
-  <section class="my-2 layanan my-md-4">
+  <section class="my-2 layanan my-md-4" x-data="{unavailable:false}">
     <div class="px-2 lg:px-5">
       <div class="mb-2 row layanan-head">
         <div class="col-lg-9">
@@ -57,7 +57,7 @@
       </div>
       <div class="flex justify-evenly gap-x-6">
         <div class="w-1/3 md:w-1/4">
-          <a href="/pesan_galon" class="flex h-full">
+          <a href="/pesan_galon" class="flex h-full" x-on:click.prevent x-on:click="unavailable=true">
             <div class="flex px-2 py-3 transition duration-500 rounded-[4px] lg:py-3 lg:px-2 gap-x-1 md:rounded-xl lg:rounded-2xl hover:scale-110 align-items-center bg-green1 lg:p-4 w-fit">
               <div class="w-1/3 pr-2 layanan-icon">
                 <img src="{{ asset("images/icons/gallon.png") }}" alt="air galon">
@@ -98,6 +98,13 @@
             </div>
           </a>
         </div>
+      </div>
+    </div>
+    <div class="flex fixed inset-0 justify-center items-center bg-neutral-900/60" x-show="unavailable"  x-on:click="unavailable=false" x-transition>
+      <div class="bg-white rounded-lg flex flex-col p-5 items-center gap-y-3">
+        <span class="text-lg font-bold uppercase">Mohon Maaf</span>
+        <span class="text-base font-semibold capitalize">Layanan ini sedang tidak tersedia</span>
+        <span class="text-sm font-bold capitalize">Silahkan coba lagi lain waktu</span>
       </div>
     </div>
   </section>

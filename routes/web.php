@@ -10,6 +10,15 @@ use App\Http\Controllers\Admin\CustomerController as AdminCustomer;
 use App\Http\Controllers\Admin\AfiliatorController as AdminAfiliator;
 use App\Http\Controllers\Admin\CouponController as AdminCoupon;
 use App\Http\Controllers\Admin\CouponRedemptionController as AdminCouponRedemption;
+use App\Http\Controllers\Admin\KosController as AdminKos;
+use App\Http\Controllers\Admin\HostController as AdminHost;
+use App\Http\Controllers\Admin\KosCategoryController as AdminKosCategory;
+use App\Http\Controllers\Admin\KosAddressController as AdminKosAddress;
+use App\Http\Controllers\Admin\KosYearlyRentController as AdminKosYearRent;
+use App\Http\Controllers\Admin\KosMonthlyRentController as AdminKosMonthRent;
+use App\Http\Controllers\Admin\KosFacilityController as AdminKosFacility;
+use App\Http\Controllers\Admin\KosImageController as AdminKosImage;
+use App\Http\Controllers\Admin\KosTypeController as AdminKosType;
 use App\Http\Controllers\User\AfiliatorController as UserAfiliator;
 use App\Http\Controllers\User\KosSearchController as UserCariKos;
 use App\Http\Controllers\User\AlatKosPurchaseController as UserAlatKos;
@@ -51,6 +60,9 @@ Route::middleware(['auth'])->group(function () {
     //     Route::resource('dashboard',AdminDashboard::class);
     // });
     Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', function () {
+            return redirect()->route('admin.dashboard.index');
+        });
         Route::resource('dashboard', AdminDashboard::class);
         Route::resource('cari_kos', AdminKosSearch::class);
         Route::resource('pesan_galon', AdminGalon::class);
@@ -61,6 +73,17 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('coupon', AdminCoupon::class);
         Route::resource('coupon_redeem', AdminCouponRedemption::class);
         Route::resource('antrian_galon', GalonQueueController::class);
+        Route::resource('host', AdminHost::class);
+        Route::resource('kos', AdminKos::class);
+        Route::resource('kos_category', AdminKosCategory::class);
+        Route::resource('kos_type', AdminKosType::class);
+        Route::resource('kos_facility', AdminKosFacility::class);
+        Route::resource('kos_address', AdminKosAddress::class);
+        Route::resource('kos_image', AdminKosImage::class);
+        Route::post('kos_image/deleteImage', [AdminKosImage::class, 'deleteImage'])->name('kos_image.deleteImage');
+        Route::resource('kos_yearly', AdminKosYearRent::class);
+        Route::resource('kos_monthly', AdminKosMonthRent::class);
+        Route::put('kos_image/change_cover/{kos_id}', [AdminKosImage::class, 'changeCover'])->name('kos_image.change_cover');
         Route::put('cari_kos/changeStatus/{kosSearch}', [AdminKosSearch::class, 'changeStatus'])->name('cari_kos.changeStatus');
         Route::put('pesan_galon/changeStatus/{galonPurchase}', [AdminGalon::class, 'changeStatus'])->name('pesan_galon.changeStatus');
         Route::put('pesan_catering/changeStatus/{cateringPurchase}', [AdminCatering::class, 'changeStatus'])->name('pesan_catering.changeStatus');
@@ -68,6 +91,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('customer/contact/{phone}', [CustomerController::class, 'contactCustomer'])->name('contact');
     });
 });
+
 
 // Route::get('/dashboard', function () {
 //     return view('admin.dashboard');

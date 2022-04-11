@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{{ asset('vendor/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/admin-lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('vendor/admin-lte/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/admin-lte/dist/css/adminlte.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -30,7 +30,7 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        <div class="mb-2 row">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
@@ -47,7 +47,7 @@
   @yield('content')
 
 
-  @include('admin.footer')
+  {{-- @include('admin.footer') --}}
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{ asset('vendor/admin-lte/plugins/jquery/jquery.min.js') }}"></script>

@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             ServiceSeeder::class,
             StatusSeeder::class,
+            KosCategorySeeder::class,
+            KosTypeSeeder::class,
+            KosFacilitySeeder::class,
         ]);
     }
 }
