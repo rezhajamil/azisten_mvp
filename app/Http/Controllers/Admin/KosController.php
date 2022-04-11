@@ -156,7 +156,7 @@ class KosController extends Controller
             }
         }
 
-        return back()->with('success', 'Data berhasil disimpan');
+        return redirect()->route('admin.kos.index')->with('success', 'Data berhasil disimpan');
     }
 
     /**
