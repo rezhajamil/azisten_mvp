@@ -45,7 +45,12 @@ class KosImageController extends Controller
 
         if ($request->file('kos_images')) {
             foreach ($request->file('kos_images') as $key => $image) {
-                $url = $image->store('kos-images');
+                try {
+                    $url = $image->store('kos-images');
+                    return 'success';
+                } catch (\Throwable $th) {
+                    return $th;
+                }
                 KosImage::create([
                     'kos_id' => $request->kos_id,
                     'url' => $url,

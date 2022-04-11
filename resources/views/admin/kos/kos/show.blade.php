@@ -197,7 +197,7 @@
             <form action="{{ route('admin.kos_image.deleteImage') }}" method="post">
                 @csrf
                 @method('post')
-                <div class="modal-body d-flex">
+                <div class="modal-body d-flex flex-wrap">
                     @foreach ($images as $image)
                         @if (!$image->is_cover)
                             <div class="px-2 col-6 col-sm-4">

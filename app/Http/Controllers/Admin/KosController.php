@@ -256,6 +256,25 @@ class KosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kos = Kos::find($id);
+
+        $kosAddress = $kos->address;
+        $kosAddress = KosAddress::find($kosAddress->id);
+
+        $kosYearlyRent = $kos->yearly_rent;
+        $kosYearlyRent = KosYearlyRent::find($kosYearlyRent->id);
+
+        if ($kos->monthly_rent) {
+            $kosMonthlyRent = $kos->monthly_rent;
+            $kosMonthlyRent = KosMonthlyRent::find($kosMonthlyRent->id);
+            $kosMonthlyRent->delete();
+        }
+
+        $kos->delete();
+        $kosAddress->delete();
+        $kosYearlyRent->delete();
+
+
+        return redirect()->route('admin.kos.index')->with('success', 'Data berhasil dihapus');
     }
 }
