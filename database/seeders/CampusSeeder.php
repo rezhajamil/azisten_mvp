@@ -27,7 +27,7 @@ class CampusSeeder extends Seeder
                 'longitude' => '98.65368108',
             ],
             [
-                'name' => 'Politeknik Negeri Medan',
+                'name' => 'Kampus Politeknik Negeri Medan',
                 'slug' => 'politeknik-negeri-medan',
                 'college_id' => 2,
                 'address' => 'Jalan Dr. T. Mansur No.9',

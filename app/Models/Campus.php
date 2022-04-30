@@ -8,7 +8,8 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Campus extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory;
+    // , Sluggable;
 
     protected $fillable = [
         'name',
@@ -30,12 +31,12 @@ class Campus extends Model
         return $this->belongsTo('App\Models\College', 'college_id', 'id');
     }
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
+    // public function sluggable(): array
+    // {
+    //     return [
+    //         'slug' => [
+    //             'source' => 'name'
+    //         ]
+    //     ];
+    // }
 }
