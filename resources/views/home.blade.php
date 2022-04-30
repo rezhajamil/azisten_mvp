@@ -109,7 +109,7 @@
       </div>
       <div class="flex justify-evenly gap-x-6">
         <div class="w-1/3 md:w-1/4">
-          <a href="/pesan_galon" class="flex h-full"  x-on:click="unavailable=false">
+          <a href="/pesan_galon" class="flex h-full" x-on:click.prevent x-on:click="unavailable=true">
             <div class="flex px-2 py-3 transition duration-500 rounded-[4px] lg:py-3 lg:px-2 gap-x-1 md:rounded-xl lg:rounded-2xl hover:scale-110 align-items-center bg-green1 lg:p-4 w-fit">
               <div class="w-1/3 pr-2 layanan-icon">
                 <img src="{{ asset("images/icons/gallon.png") }}" alt="air galon">
