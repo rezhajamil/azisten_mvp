@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             KosCategorySeeder::class,
             KosTypeSeeder::class,
             KosFacilitySeeder::class,
+            CollegeSeeder::class,
+            CampusSeeder::class,
         ]);
     }
 }

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Campus;
+use App\Models\College;
 use App\Models\Customer;
+use App\Models\Kos;
+use App\Models\KosImage;
+use App\Models\KosFacility;
 use App\Models\KosSearch;
 use Illuminate\Http\Request;
 
@@ -16,7 +21,9 @@ class KosSearchController extends Controller
      */
     public function index()
     {
-        return view('user.cari_kos.index');
+        $campuses = Campus::all();
+        $colleges = College::all();
+        return view('user.cari_kos.index', compact('campuses', 'colleges'));
     }
 
 
@@ -95,7 +102,22 @@ class KosSearchController extends Controller
      */
     public function show($id)
     {
-        return view('user.cari_kos.detail');
+        $kos = Kos::with(['host', 'kosAddress', 'kosYearlyRent', 'kosMonthlyRent', 'kosCategory', 'kosImage'])->find($id);
+        $facilities = KosFacility::all();
+        $kos_facilities = [];
+        $kosImage = KosImage::where('kos_id', $id)->get('url');
+        $images = [];
+
+        foreach (explode(',', $kos->facility) as $kos_facility) {
+            foreach ($facilities as $facility) {
+                $facility->id == $kos_facility ? array_push($kos_facilities, $facility->name) : null;
+            }
+        }
+
+        foreach ($kosImage as $image) {
+            array_push($images, $image->url);
+        }
+        return view('user.cari_kos.detail', compact('kos', 'kos_facilities', 'images'));
     }
 
     /**
@@ -130,5 +152,37 @@ class KosSearchController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search($slug)
+    {
+        $campus = Campus::where('slug', '=', $slug)->first();
+        $data = Kos::getKosInDistance($campus);
+        $images = KosImage::where('is_cover', '=', 1)->get();
+        $facilities = KosFacility::all();
+        $campuses = Campus::all();
+        $colleges = College::all();
+
+        return view('user.cari_kos.search', compact('data', 'campus', 'images', 'facilities', 'campuses', 'colleges'));
+    }
+
+    public function book($id)
+    {
+        $kos = Kos::find($id);
+        $text = "Hallo AZISTEN\nSaya ingin booking kos" . $kos->name;
+
+        $wa_url = 'https://wa.me/6285869205026?text=' . rawurlencode($text);
+
+        return redirect($wa_url);
+    }
+
+    public function rideSharing($id)
+    {
+        $kos = Kos::find($id);
+        $text = "Hallo AZISTEN\nSaya ingin Ride Sharing untuk kos" . $kos->name;
+
+        $wa_url = 'https://wa.me/6285869205026?text=' . rawurlencode($text);
+
+        return redirect($wa_url);
     }
 }

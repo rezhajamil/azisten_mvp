@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Campus extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     protected $fillable = [
         'name',
@@ -16,9 +17,9 @@ class Campus extends Model
         'address',
         'province',
         'city',
-        'dsitrict',
+        'district',
         'latitude',
-        'longtitude',
+        'longitude',
         'created_at',
         'updated_at',
     ];
@@ -27,5 +28,14 @@ class Campus extends Model
     public function college()
     {
         return $this->belongsTo('App\Models\College', 'college_id', 'id');
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }

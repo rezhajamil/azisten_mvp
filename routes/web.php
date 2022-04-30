@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\KosMonthlyRentController as AdminKosMonthRent;
 use App\Http\Controllers\Admin\KosFacilityController as AdminKosFacility;
 use App\Http\Controllers\Admin\KosImageController as AdminKosImage;
 use App\Http\Controllers\Admin\KosTypeController as AdminKosType;
+use App\Http\Controllers\Admin\CollegeController as AdminCollege;
+use App\Http\Controllers\Admin\CampusController as AdminCampus;
 use App\Http\Controllers\User\AfiliatorController as UserAfiliator;
 use App\Http\Controllers\User\KosSearchController as UserCariKos;
 use App\Http\Controllers\User\AlatKosPurchaseController as UserAlatKos;
@@ -47,6 +49,9 @@ Route::get('about', [AboutController::class, 'index']);
 
 Route::prefix('/')->name('user.')->group(function () {
     Route::resource('cari_kos', UserCariKos::class);
+    Route::get('search/{slug}', [UserCariKos::class, 'search'])->name('cari_kos.search');
+    Route::get('book/{id}', [UserCariKos::class, 'book'])->name('cari_kos.book');
+    Route::get('ride_sharing/{id}', [UserCariKos::class, 'rideSharing'])->name('cari_kos.ride_sharing');
     Route::resource('afiliasi', UserAfiliator::class);
     Route::resource('pesan_galon', UserGalon::class);
     Route::resource('pesan_catering', UserCatering::class);
@@ -80,9 +85,12 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('kos_facility', AdminKosFacility::class);
         Route::resource('kos_address', AdminKosAddress::class);
         Route::resource('kos_image', AdminKosImage::class);
-        Route::post('kos_image/deleteImage', [AdminKosImage::class, 'deleteImage'])->name('kos_image.deleteImage');
         Route::resource('kos_yearly', AdminKosYearRent::class);
         Route::resource('kos_monthly', AdminKosMonthRent::class);
+        Route::resource('college', AdminCollege::class);
+        Route::resource('campus', AdminCampus::class);
+        Route::get('campus/checkSlug', [AdminCampus::class, 'checkSlug']);
+        Route::post('kos_image/deleteImage', [AdminKosImage::class, 'deleteImage'])->name('kos_image.deleteImage');
         Route::put('kos_image/change_cover/{kos_id}', [AdminKosImage::class, 'changeCover'])->name('kos_image.change_cover');
         Route::put('cari_kos/changeStatus/{kosSearch}', [AdminKosSearch::class, 'changeStatus'])->name('cari_kos.changeStatus');
         Route::put('pesan_galon/changeStatus/{galonPurchase}', [AdminGalon::class, 'changeStatus'])->name('pesan_galon.changeStatus');

@@ -8,139 +8,45 @@
         </div>
         <hr class="mt-2">
         <div class="w-full max-w-lg py-2 mx-auto college-filter" x-data="{selected:null}">
-            <div class="w-full border-b-2 shadow-md bg-slate-50">
-                <div
-                    x-on:click="selected != 1 ? selected = 1 : selected =null"
-                    class="flex items-center justify-between px-3 bg-green-600 shadow-sm"
-                >
-                    <h1 class="py-2 font-semibold text-white">USU</h1>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x-bind:class="selected == 1? 'transform rotate-180':''"
-                        class="w-5 h-5 text-white transition-all duration-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
+            @foreach ($colleges as $college)
+                <div class="w-full border-b-2 shadow-md bg-slate-50">
+                    <div
+                        x-on:click="selected != {{ $college->id }} ? selected = {{ $college->id }} : selected =null"
+                        class="flex items-center justify-between px-3 bg-green-600 shadow-sm"
+                    >
+                        <h1 class="py-2 font-semibold text-white">{{ $college->name }}</h1>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            x-bind:class="selected == {{ $college->id }}? 'transform rotate-180':''"
+                            class="w-5 h-5 text-white transition-all duration-300"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 9l-7 7-7-7"
+                            />
+                        </svg>
+                    </div>
+                    <div
+                        class="overflow-hidden transition-all duration-300 max-h-0"
+                        x-ref="tab{{ $college->id }}"
+                        :style="selected == {{ $college->id }} ? 'max-height: '+ $refs.tab{{ $college->id }}.scrollHeight+ 'px;':''">
+                        @foreach ($campuses as $campus)
+                                @if ($campus->college_id==$college->id)
+                                    <p class="p-2 px-3 text-justify">
+                                        <a href="/search/{{ $campus->slug }}" type="button">
+                                            <span class="w-full text-sm text-center" x-on:click="college=false">{{ $campus->name }}</span>
+                                        </a>
+                                    </p>
+                                @endif
+                        @endforeach
+                    </div>
                 </div>
-                <div
-                    class="overflow-hidden transition-all duration-300 max-h-0"
-                    x-ref="tab1"
-                    :style="selected == 1 ? 'max-height: '+ $refs.tab1.scrollHeight+ 'px;':''">
-                    <p class="p-2 px-3 text-justify">
-                        <a href="#" type="button">
-                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus USU</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="w-full border-b-2 shadow-md bg-slate-50">
-                <div
-                    x-on:click="selected != 2 ? selected = 2 : selected =null"
-                    class="flex items-center justify-between px-3 bg-green-600 shadow-sm"
-                >
-                    <h1 class="py-2 font-semibold text-white">POLMED</h1>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x-bind:class="selected == 2? 'transform rotate-180':''"
-                        class="w-5 h-5 text-white transition-all duration-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </div>
-                <div
-                    class="overflow-hidden transition-all duration-300 max-h-0"
-                    x-ref="tab2"
-                    :style="selected == 2 ? 'max-height: '+ $refs.tab2.scrollHeight+ 'px;':''">
-                    <p class="p-2 px-3 text-justify">
-                        <a href="#" type="button">
-                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus POLMED</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="w-full border-b-2 shadow-md bg-slate-50">
-                <div
-                    x-on:click="selected != 3 ? selected = 3 : selected =null"
-                    class="flex items-center justify-between px-3 bg-green-600 shadow-sm"
-                >
-                    <h1 class="py-2 font-semibold text-white">UINSU</h1>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x-bind:class="selected == 3? 'transform rotate-180':''"
-                        class="w-5 h-5 text-white transition-all duration-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </div>
-                <div
-                    class="overflow-hidden transition-all duration-300 max-h-0"
-                    x-ref="tab3"
-                    :style="selected == 3 ? 'max-height: '+ $refs.tab3.scrollHeight+ 'px;':''">
-                    <p class="p-2 px-3 text-justify border-b">
-                        <a href="#" type="button">
-                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus UINSU 1</span>
-                        </a>
-                    </p>
-                    <p class="p-2 px-3 text-justify">
-                        <a href="#" type="button">
-                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus UINSU 2</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="w-full border-b-2 shadow-md bg-slate-50">
-                <div
-                    x-on:click="selected != 4 ? selected = 4 : selected =null"
-                    class="flex items-center justify-between px-3 bg-green-600 shadow-sm"
-                >
-                    <h1 class="py-2 font-semibold text-white">UNIMED</h1>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x-bind:class="selected == 4? 'transform rotate-180':''"
-                        class="w-5 h-5 text-white transition-all duration-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </div>
-                <div
-                    class="overflow-hidden transition-all duration-300 max-h-0"
-                    x-ref="tab4"
-                    :style="selected == 4 ? 'max-height: '+ $refs.tab4.scrollHeight+ 'px;':''">
-                    <p class="p-2 px-3 text-justify border-b">
-                        <a href="#" type="button">
-                            <span class="w-full text-sm text-center" x-on:click="college=false">Kampus UNIMED</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </div>

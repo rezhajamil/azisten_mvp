@@ -47,7 +47,6 @@ class KosImageController extends Controller
             foreach ($request->file('kos_images') as $key => $image) {
                 try {
                     $url = $image->store('kos-images');
-                    return 'success';
                 } catch (\Throwable $th) {
                     return $th;
                 }

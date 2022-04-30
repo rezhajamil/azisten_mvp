@@ -82,8 +82,8 @@ mahasiswa dalam memenuhi kebutuhan lainnya</p>
             <p class="mb-1 text-center text-white h4 fw-bold">WE HAVE</p>
             <p class="text-center text-white h4 fw-bold"><span class="text-green1">Some Awesome </span>People</p>
         </div>
-        <div class="container mx-0 mt-3 row team-row mt-lg-5 justify-content-around flex-lg-wrap gy-2">
-            <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-12 col-md-3 mx-md-5 position-relative">
+        <div class="container mx-0 mt-3 grid grid-cols-1 md:grid-cols-4 mt-lg-5 justify-content-around flex-lg-wrap gy-2">
+            <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-span-1 mx-md-5 position-relative">
                 <img src="{{ asset("images/teams/Bobby.jpg") }}" alt="" class="team-pic position-absolute h-75 w-100 cover">
                 <x-team_socmed linkedin="https://www.linkedin.com/in/bobby-ardian-412119147"></x-team_socmed>
                 <div class="bottom-0 mb-3 position-absolute w-100">
@@ -91,7 +91,7 @@ mahasiswa dalam memenuhi kebutuhan lainnya</p>
                     <p class="text-center text-grey2 h5 fw-bold">Chief Executive Officer</p>
                 </div>
             </div>
-            <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-12 col-md-3 mx-md-5 position-relative">
+            <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-span-1 mx-md-5 position-relative">
                 <img src="{{ asset("images/teams/Pounna.jpg") }}" alt="" class="team-pic position-absolute h-75 w-100 cover">
                 <x-team_socmed linkedin="https://www.linkedin.com/in/pounna-rizky-yusra-ramadhan-1621ab1bb/"></x-team_socmed>
                 <div class="bottom-0 mb-3 position-absolute w-100">
@@ -99,31 +99,23 @@ mahasiswa dalam memenuhi kebutuhan lainnya</p>
                     <p class="text-center text-grey2 h5 fw-bold">Chief Financial Officer</p>
                 </div>
             </div>
-            <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-12 col-md-3 mx-md-5 position-relative">
-                <img src="{{ asset("images/teams/Russi.jpg") }}" alt="" class="team-pic position-absolute h-75 w-100 cover">
-                <x-team_socmed linkedin="https://www.linkedin.com/in/russi-hersiano-b2b20a186/"></x-team_socmed>
+            <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-span-1 mx-md-5 position-relative">
+                <img src="{{ asset("images/teams/Rezha.jpg") }}" alt="" class="team-pic position-absolute h-75 w-100 cover">
+                <x-team_socmed linkedin="https://www.linkedin.com/in/rezha-jamil/"></x-team_socmed>
                 <div class="bottom-0 mb-3 position-absolute w-100">
-                    <p class="m-0 text-center text-black fw-bold h3">Russi Hersiano</p>
-                    <p class="text-center text-grey2 h5 fw-bold">Chief Design Officer</p>
+                    <p class="m-0 text-center text-black fw-bold h3">Rezha Jamil</p>
+                    <p class="text-center text-grey2 h5 fw-bold">Chief Technology Officer</p>
+                </div>
+            </div>
+            <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-span-1 mx-md-5 position-relative">
+                <img src="{{ asset("images/teams/Nisa.jpg") }}" alt="" class="team-pic position-absolute h-75 w-100 cover">
+                <x-team_socmed linkedin="https://www.linkedin.com/in/tazkiyatun-nisa-3b8647213"></x-team_socmed>
+                <div class="bottom-0 mb-3 position-absolute w-100">
+                    <p class="m-0 text-center text-black fw-bold h3">Tazkiyatun Nisa</p>
+                    <p class="text-center text-grey2 h5 fw-bold">Chief Designer Officer</p>
                 </div>
             </div>
             <div class="container mx-0 row team-row mt-lg-5 justify-content-center flex-lg-wrap gy-2">
-                <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-12 col-md-3 mx-md-5 position-relative">
-                    <img src="{{ asset("images/teams/Rezha.jpg") }}" alt="" class="team-pic position-absolute h-75 w-100 cover">
-                    <x-team_socmed linkedin="https://www.linkedin.com/in/rezha-jamil/"></x-team_socmed>
-                    <div class="bottom-0 mb-3 position-absolute w-100">
-                        <p class="m-0 text-center text-black fw-bold h3">Rezha Jamil</p>
-                        <p class="text-center text-grey2 h5 fw-bold">Chief Technology Officer</p>
-                    </div>
-                </div>
-                <div class="p-0 mt-3 bg-white team-person mt-lg-0 col-12 col-md-3 mx-md-5 position-relative">
-                    <img src="{{ asset("images/teams/Nisa.jpg") }}" alt="" class="team-pic position-absolute h-75 w-100 cover">
-                    <x-team_socmed linkedin="https://www.linkedin.com/in/tazkiyatun-nisa-3b8647213"></x-team_socmed>
-                    <div class="bottom-0 mb-3 position-absolute w-100">
-                        <p class="m-0 text-center text-black fw-bold h3">Tazkiyatun Nisa</p>
-                        <p class="text-center text-grey2 h5 fw-bold">Junior UI/UX Designer</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

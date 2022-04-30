@@ -1,14 +1,14 @@
 
   @extends('layouts.app',['footer'=>true])
   @section('content')
-  <div class="px-0 my-3 container-lg">
+  <div class="px-0 my-3 container-lg" x-data={college:false}>
     <div class="jumbotron d-flex rounded-0" style="background-image: url({{ asset("images/jumbotron.jpg") }});">
       <div class="container mt-auto text-white j-capt justify-content-end flex-column">
         <div class="col-lg-5 offset-lg-1">
           <p class="mb-2 display-3 fw-bold">Mau Cari Kosan ?</p>
           <p class="mb-3 text-justify h6 fw-normal">Cari kos kini bisa lebih hemat waktu,uang,<br class="d-sm-none"> dan tenaga dengan layanan kami.</p>
           <div class="col-12">
-            <div class="p-2 mb-4 bg-white search rounded-pill pe-3 w-100 d-flex align-items-center pointer-event" onclick="location.href='/cari_kos'">
+            <div class="p-2 mb-4 bg-white search rounded-pill pe-3 w-100 d-flex align-items-center pointer-event" x-on:click="college=!college" x-on:click.prevent>
               <div class="dropdown me-1">
                 <button class="btn btn-green1 btn-filter dropdown-toggle rounded-pill" type="button" id="btnSearch">
                   <span class="me-5">Cari Kos</span>
@@ -30,6 +30,58 @@
         </div>
       </div>
     </div>
+    <div class="fixed inset-0 z-20 flex items-center justify-center w-screen h-screen bg-black/40" x-show="college" x-transition>
+      <div class="relative flex flex-col w-3/4 pt-3 overflow-y-auto md:w-1/4 h-1/2 bg-slate-50" x-show="college" x-transition:enter="transition ease-in-out duration-300" x-transition:enter-start="opacity-0 transform -translate-x-full" x-transition:enter-end="opacity-100 transform -translate-x-0" >
+          <div class="flex items-center justify-center px-3">
+              <span class="inline-block w-full text-2xl font-bold text-center">Kampus</span>
+              <button class="ml-auto bg-transparent" x-on:click="college=false">
+                  <span class="text-xl font-bold">X</span>
+              </button>
+          </div>
+          <hr class="mt-2">
+          <div class="w-full max-w-lg py-2 mx-auto college-filter" x-data="{selected:null}">
+              @foreach ($colleges as $college)
+                  <div class="w-full border-b-2 shadow-md bg-slate-50">
+                      <div
+                          x-on:click="selected != {{ $college->id }} ? selected = {{ $college->id }} : selected =null"
+                          class="flex items-center justify-between px-3 bg-green-600 shadow-sm"
+                      >
+                          <h1 class="py-2 font-semibold text-white">{{ $college->name }}</h1>
+                          <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              x-bind:class="selected == {{ $college->id }}? 'transform rotate-180':''"
+                              class="w-5 h-5 text-white transition-all duration-300"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M19 9l-7 7-7-7"
+                              />
+                          </svg>
+                      </div>
+                      <div
+                          class="overflow-hidden transition-all duration-300 max-h-0"
+                          x-ref="tab{{ $college->id }}"
+                          :style="selected == {{ $college->id }} ? 'max-height: '+ $refs.tab{{ $college->id }}.scrollHeight+ 'px;':''">
+                          @foreach ($campuses as $campus)
+                                  @if ($campus->college_id==$college->id)
+                                      <p class="p-2 px-3 text-justify">
+                                          <a href="/search/{{ $campus->slug }}" type="button">
+                                              <span class="w-full text-sm text-center" x-on:click="college=false">{{ $campus->name }}</span>
+                                          </a>
+                                      </p>
+                                  @endif
+                          @endforeach
+                      </div>
+                  </div>
+              @endforeach
+              
+          </div>
+      </div>
+  </div>
   </div>
 
   {{-- <section class="py-3 mt-3 kos-list mt-md-5">
@@ -57,7 +109,7 @@
       </div>
       <div class="flex justify-evenly gap-x-6">
         <div class="w-1/3 md:w-1/4">
-          <a href="/pesan_galon" class="flex h-full" x-on:click.prevent x-on:click="unavailable=true">
+          <a href="/pesan_galon" class="flex h-full"  x-on:click="unavailable=false">
             <div class="flex px-2 py-3 transition duration-500 rounded-[4px] lg:py-3 lg:px-2 gap-x-1 md:rounded-xl lg:rounded-2xl hover:scale-110 align-items-center bg-green1 lg:p-4 w-fit">
               <div class="w-1/3 pr-2 layanan-icon">
                 <img src="{{ asset("images/icons/gallon.png") }}" alt="air galon">
@@ -100,8 +152,8 @@
         </div>
       </div>
     </div>
-    <div class="flex fixed inset-0 justify-center items-center bg-neutral-900/60" x-show="unavailable"  x-on:click="unavailable=false" x-transition>
-      <div class="bg-white rounded-lg flex flex-col p-5 items-center gap-y-3">
+    <div class="fixed inset-0 flex items-center justify-center bg-neutral-900/60" x-show="unavailable"  x-on:click="unavailable=false" x-transition>
+      <div class="flex flex-col items-center p-5 bg-white rounded-lg gap-y-3">
         <span class="text-lg font-bold uppercase">Mohon Maaf</span>
         <span class="text-base font-semibold capitalize">Layanan ini sedang tidak tersedia</span>
         <span class="text-sm font-bold capitalize">Silahkan coba lagi lain waktu</span>

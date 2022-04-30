@@ -187,7 +187,9 @@ class ComposerStaticInit4ddeae35db312b707f58b41581d2a55c
         ),
         'C' => 
         array (
+            'Cviebrock\\EloquentSluggable\\' => 28,
             'Cron\\' => 5,
+            'Cocur\\Slugify\\' => 14,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -574,9 +576,17 @@ class ComposerStaticInit4ddeae35db312b707f58b41581d2a55c
         array (
             0 => __DIR__ . '/../..' . '/database/factories',
         ),
+        'Cviebrock\\EloquentSluggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
+        ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
         ),
         'Carbon\\' => 
         array (
@@ -639,7 +649,9 @@ class ComposerStaticInit4ddeae35db312b707f58b41581d2a55c
         'App\\Http\\Controllers\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/AboutController.php',
         'App\\Http\\Controllers\\Admin\\AfiliatorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AfiliatorController.php',
         'App\\Http\\Controllers\\Admin\\AlatKosPurchaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AlatKosPurchaseController.php',
+        'App\\Http\\Controllers\\Admin\\CampusController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CampusController.php',
         'App\\Http\\Controllers\\Admin\\CateringPurchaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CateringPurchaseController.php',
+        'App\\Http\\Controllers\\Admin\\CollegeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CollegeController.php',
         'App\\Http\\Controllers\\Admin\\CouponController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CouponController.php',
         'App\\Http\\Controllers\\Admin\\CouponRedemptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CouponRedemptionController.php',
         'App\\Http\\Controllers\\Admin\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CustomerController.php',
@@ -650,6 +662,7 @@ class ComposerStaticInit4ddeae35db312b707f58b41581d2a55c
         'App\\Http\\Controllers\\Admin\\KosCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KosCategoryController.php',
         'App\\Http\\Controllers\\Admin\\KosController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KosController.php',
         'App\\Http\\Controllers\\Admin\\KosFacilityController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KosFacilityController.php',
+        'App\\Http\\Controllers\\Admin\\KosImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KosImageController.php',
         'App\\Http\\Controllers\\Admin\\KosMonthlyRentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KosMonthlyRentController.php',
         'App\\Http\\Controllers\\Admin\\KosSearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KosSearchController.php',
         'App\\Http\\Controllers\\Admin\\KosTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KosTypeController.php',
@@ -1707,6 +1720,25 @@ class ComposerStaticInit4ddeae35db312b707f58b41581d2a55c
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Carbon\\TranslatorStrongTypeInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
+        'Cocur\\Slugify\\Bridge\\Laravel\\SlugifyFacade' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Laravel/SlugifyFacade.php',
+        'Cocur\\Slugify\\Bridge\\Laravel\\SlugifyServiceProvider' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Laravel/SlugifyServiceProvider.php',
+        'Cocur\\Slugify\\Bridge\\Latte\\SlugifyHelper' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Latte/SlugifyHelper.php',
+        'Cocur\\Slugify\\Bridge\\League\\SlugifyServiceProvider' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/League/SlugifyServiceProvider.php',
+        'Cocur\\Slugify\\Bridge\\Nette\\SlugifyExtension' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Nette/SlugifyExtension.php',
+        'Cocur\\Slugify\\Bridge\\Plum\\SlugifyConverter' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Plum/SlugifyConverter.php',
+        'Cocur\\Slugify\\Bridge\\Symfony\\CocurSlugifyBundle' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Symfony/CocurSlugifyBundle.php',
+        'Cocur\\Slugify\\Bridge\\Symfony\\CocurSlugifyExtension' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Symfony/CocurSlugifyExtension.php',
+        'Cocur\\Slugify\\Bridge\\Symfony\\Configuration' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Symfony/Configuration.php',
+        'Cocur\\Slugify\\Bridge\\Twig\\SlugifyExtension' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/Twig/SlugifyExtension.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\Module' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/Module.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\SlugifyService' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/SlugifyService.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\SlugifyViewHelper' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/SlugifyViewHelper.php',
+        'Cocur\\Slugify\\Bridge\\ZF2\\SlugifyViewHelperFactory' => __DIR__ . '/..' . '/cocur/slugify/src/Bridge/ZF2/SlugifyViewHelperFactory.php',
+        'Cocur\\Slugify\\RuleProvider\\DefaultRuleProvider' => __DIR__ . '/..' . '/cocur/slugify/src/RuleProvider/DefaultRuleProvider.php',
+        'Cocur\\Slugify\\RuleProvider\\FileRuleProvider' => __DIR__ . '/..' . '/cocur/slugify/src/RuleProvider/FileRuleProvider.php',
+        'Cocur\\Slugify\\RuleProvider\\RuleProviderInterface' => __DIR__ . '/..' . '/cocur/slugify/src/RuleProvider/RuleProviderInterface.php',
+        'Cocur\\Slugify\\Slugify' => __DIR__ . '/..' . '/cocur/slugify/src/Slugify.php',
+        'Cocur\\Slugify\\SlugifyInterface' => __DIR__ . '/..' . '/cocur/slugify/src/SlugifyInterface.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
@@ -1718,6 +1750,11 @@ class ComposerStaticInit4ddeae35db312b707f58b41581d2a55c
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Cviebrock\\EloquentSluggable\\ServiceProvider' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/ServiceProvider.php',
+        'Cviebrock\\EloquentSluggable\\Services\\SlugService' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/Services/SlugService.php',
+        'Cviebrock\\EloquentSluggable\\Sluggable' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/Sluggable.php',
+        'Cviebrock\\EloquentSluggable\\SluggableObserver' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/SluggableObserver.php',
+        'Cviebrock\\EloquentSluggable\\SluggableScopeHelpers' => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src/SluggableScopeHelpers.php',
         'Database\\Factories\\AfiliasiFactory' => __DIR__ . '/../..' . '/database/factories/AfiliasiFactory.php',
         'Database\\Factories\\GalonCategoryFactory' => __DIR__ . '/../..' . '/database/factories/GalonCategoryFactory.php',
         'Database\\Factories\\GalonPurchaseFactory' => __DIR__ . '/../..' . '/database/factories/GalonPurchaseFactory.php',
